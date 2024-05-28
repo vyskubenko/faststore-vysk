@@ -1,0 +1,38 @@
+[
+  {
+    "name": "BannerSlider",
+    "schema": {
+      "title": "Banner Slider 2",
+      "description": "What's your next bug adventre?",
+      "type": "object",
+			"required": [
+				"title",
+				"link"
+			],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "link": {
+          "title": "Link Path",
+          "type": "object",
+					"required": [
+						"title",
+						"link"
+					],
+          "properties": {
+            "text": {
+              "title": "Text",
+              "type": "string"
+            },
+            "url": {
+              "title": "URL",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+]

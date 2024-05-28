@@ -54,9 +54,9 @@ module.exports = {
 
   previewRedirects: {
     home: '/',
-    plp: "/food%20and%20beverage",
+    plp: "/apparel",
     search: "/s?q=Brand",
-    pdp: "/navel-oranges-grown-large-fresh-fruit/p",
+    pdp: "/adidas-womens-microdot-polo-night-indigo/p",
   },
 
   // Lighthouse CI
@@ -64,8 +64,8 @@ module.exports = {
     server: process.env.BASE_SITE_URL || 'http://localhost:3000',
     pages: {
       home: '/',
-      pdp: "/navel-oranges-grown-large-fresh-fruit/p",
-      collection: "/food%20and%20beverage",
+      pdp: "/adidas-womens-microdot-polo-night-indigo/p",
+      collection: "/apparel",
     },
   },
 
@@ -73,9 +73,9 @@ module.exports = {
   cypress: {
     pages: {
       home: '/',
-      pdp: "/navel-oranges-grown-large-fresh-fruit/p",
-      collection: "/food%20and%20beverage",
-      collection_filtered: "/food%20and%20beverage/?category-1=food%20and%20beverage&brand=Brand&facets=category-1%2Cbrand%27",
+      pdp: "/adidas-womens-microdot-polo-night-indigo/p",
+      collection: "/apparel",
+      collection_filtered: "/apparel?initialMap=c&initialQuery=apparel&map=category-1,clothes-size",
       search: "/s?q=Brand",
     },
     browser: 'electron',
@@ -93,7 +93,7 @@ module.exports = {
 
   vtexHeadlessCms: {
     webhookUrls: [
-      "https://vysk.myvtex.com/cms-releases/webhook-releases",
+      "https://faststore--vysk.myvtex.com/cms-releases/webhook-releases",
     ],
   },
 }

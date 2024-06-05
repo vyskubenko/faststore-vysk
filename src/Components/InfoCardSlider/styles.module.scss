@@ -1,5 +1,5 @@
 .infoCardSlider {
-  margin: 60px calc(var(--fs-grid-gap-4) / 4 * -1);
+  margin: var(--fs-spacing-8) calc(var(--fs-grid-gap-4) / 4 * -1);
   padding: 0 var(--fs-grid-gap-4);
 
   @import "@faststore/ui/src/components/atoms/Button/styles.scss";

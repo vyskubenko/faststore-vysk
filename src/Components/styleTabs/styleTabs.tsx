@@ -1,22 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, ReactElement, FC} from "react";
 import { List, Link,ProductGrid, ProductGridItem,ProductCard,ProductCardImage,ProductCardContent, Button} from "@faststore/ui";
 
 import styles from "./styles.module.scss";
 
-interface List {
-  imageDesktop: string;
-  name: string;
-  url: string;
-}
-export interface styleTabsProps {
-  list: List[];
-  itemsPerPage: number;
-  infiniteMode: boolean;
+interface banner {
   title: string;
+  image: string;
+  linkText: string;
+  href: string;
 }
 
-export interface tabsProps {
-  onAccordionChange: (index: number) => void
+interface tabs {
+  title: string;
+  banner: banner;
+  productClusterIds: number;
+}
+export interface styleTabsProps {
+  tabs: tabs[];
 }
 
 
@@ -37,7 +37,7 @@ const links = [
     title: 'Snowbound Adventurer',
     banner: 
       {
-        title: 'Discover Boundless Adventures',
+        title: 'testet Boundless Adventures',
         linkText: 'Shop All Camping',
         href: '/',
         image: 'https://vysk.vtexassets.com/unsafe/768x0/center/middle/https%3A%2F%2Fstoreframework.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F1e46eee3-5cd9-4911-8a81-501fe9c744fe___57d4662d50c07e760e6e74d8da282508.jpg',
@@ -49,7 +49,7 @@ const links = [
     title: 'Weekend Warrior',
     banner:
       {
-        title: 'Discover Boundless Adventures',
+        title: 'Discover ewtw egwge ',
         linkText: 'Shop All Camping',
         href: '/',
         image: 'https://vysk.vtexassets.com/unsafe/768x0/center/middle/https%3A%2F%2Fstoreframework.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F1e46eee3-5cd9-4911-8a81-501fe9c744fe___57d4662d50c07e760e6e74d8da282508.jpg',
@@ -80,7 +80,9 @@ const fetchData = async (clusterId: any) => {
   }
 };
 
-const styleTabs = () => {
+const styleTabs: FC<styleTabsProps> = ({
+  tabs
+}): ReactElement => {
   const [activeTab, setActiveTab] = useState(0);
   const [products, setProducts] = useState<any>(null);
   const [productsJson, setproductsJson] = useState<any>(null);
@@ -88,7 +90,7 @@ const styleTabs = () => {
   useEffect(() => {
     const fetchDataAsync = async () => {
       try {
-        const fetchedData = await fetchData(links[activeTab].productClusterIds);
+        const fetchedData = await fetchData(tabs[activeTab].productClusterIds);
         setProducts(fetchedData);
       } catch (error) {
         // Handle error
@@ -111,7 +113,7 @@ const styleTabs = () => {
   return (
     <section className={styles.styleTabs}>
       <div className={`${styles.styleTabs__header} tab__header`}>
-        {links.map((item, index) => (
+        {tabs.map((item, index) => (
           <Link 
             key={index}
             variant={index === activeTab ? "display" : "default"}
@@ -124,18 +126,18 @@ const styleTabs = () => {
       <div className={`${styles.styleTabs__container} tab__container`}>
 
         <div className={`${styles.styleTabs__col} ${styles.styleTabs__banner}`}>
-          <div className={styles.styleTabs__banner__img} key={links[activeTab].banner.title} data-fs-hero-image>
+          <div className={styles.styleTabs__banner__img} key={tabs[activeTab].banner.title} data-fs-hero-image>
                 <picture data-fs-image>
                   <source
                     media="(max-width: 799px)"
-                    srcSet={links[activeTab].banner.image}
+                    srcSet={tabs[activeTab].banner.image}
                     data-fs-image
                   />
-                  <img src={links[activeTab].banner.image} alt={links[activeTab].banner.title} data-fs-image />
+                  <img src={tabs[activeTab].banner.image} alt={tabs[activeTab].banner.title} data-fs-image />
                 </picture>
                 <div className={styles.carouselBanners__content}>
-                  <h3 className={styles.carouselBanners__title}>{links[activeTab].title}</h3>
-                  <Button className={styles.carouselBanners__button} variant="primary">{links[activeTab].banner.title}</Button>
+                  <h3 className={styles.carouselBanners__title}>{tabs[activeTab].banner.title}</h3>
+                  <Button className={styles.carouselBanners__button} variant="primary">{tabs[activeTab].banner.linkText}</Button>
                 </div>
             </div>
         </div>

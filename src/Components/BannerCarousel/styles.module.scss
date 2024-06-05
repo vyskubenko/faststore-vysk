@@ -1,3 +1,6 @@
+@import '../../themes/_buttons.scss';
+
+
 .carouselBanners {
     @import "@faststore/ui/src/components/atoms/Button/styles.scss";
     @import "@faststore/ui/src/components/molecules/Carousel/styles.scss";
@@ -54,15 +57,6 @@
 }
 
 .carouselBanners__button {
-    background-color: var(--fs-color-main-1);
     width: 200px !important;
-    text-align: center;
-    color:#FFF;
-    display: inline-block !important;
-    border-radius: 50px;
-    overflow: hidden;
-
-    div {
-        background: none !important;
-    }
+    @extend %primary-button;
 }

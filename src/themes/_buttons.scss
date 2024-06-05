@@ -1,0 +1,13 @@
+
+%primary-button {
+    background-color: var(--fs-color-main-1);
+    text-align: center;
+    color:#FFF;
+    display: inline-block !important;
+    border-radius: 50px;
+    overflow: hidden;
+
+    div {
+        background: none !important;
+    }
+}

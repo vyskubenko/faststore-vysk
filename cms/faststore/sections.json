@@ -199,14 +199,51 @@
 	{
     "name": "styleTabs",
     "schema": {
-      "title": "Style Tabs",
+      "title": "Shelf Tabs with Banner",
       "description": "Style tabs contains a banner and 4 products",
       "type": "object",
       "required": [],
       "properties": {
-				"title": {
-          "title": "Headtitle",
-          "type": "string"
+        "tabs": {
+          "title": "Tabs",
+          "type": "array",
+          "items": {
+            "title": "Tab",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Title",
+                "type": "string"
+              },
+              "productClusterIds": {
+                "title": "productClusterIds",
+                "type": "number"
+              },
+              "banner": {
+                "title": "banner",
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Banner Title",
+                    "type": "string"
+                  },
+                  "image": {
+                    "title": "Image",
+                    "type": "string",
+                    "widget": { "ui:widget": "image-uploader" }
+                  },
+                  "linkText": {
+                    "title": "linkText",
+                    "type": "string"
+                  },
+                  "href": {
+                    "title": "href",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

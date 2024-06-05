@@ -1,0 +1,68 @@
+.carouselBanners {
+    @import "@faststore/ui/src/components/atoms/Button/styles.scss";
+    @import "@faststore/ui/src/components/molecules/Carousel/styles.scss";
+
+    [data-fs-carousel] {
+        [data-fs-carousel-track] {
+            padding: 0;
+        }
+    }
+
+    [data-fs-carousel-item] {
+        margin: 0 !important;
+    }
+
+    [data-fs-carousel-banner] {
+        [data-fs-link] {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        [data-fs-button] {
+            --fs-button-border-width: var(--fs-border-width);
+            --fs-button-text-weight: var(--fs-text-weight-regular);
+            margin-top: auto;
+            text-transform: uppercase;
+        }
+    }
+}
+
+
+.carouselBanners__item {
+    position: relative;
+}
+
+.carouselBanners__content {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    z-index: 2;
+    text-align: center;
+}
+
+.carouselBanners__title {
+   text-transform: uppercase;
+   clear: both;
+   font-size: var(--fs-text-size-8);
+   margin-bottom: 10px;
+   color: var(--fs-color-main-2);
+   font-family: var(--fs-text-face-title);
+   font-weight: bold;
+}
+
+.carouselBanners__button {
+    background-color: var(--fs-color-main-1);
+    width: 200px !important;
+    text-align: center;
+    color:#FFF;
+    display: inline-block !important;
+    border-radius: 50px;
+    overflow: hidden;
+
+    div {
+        background: none !important;
+    }
+}

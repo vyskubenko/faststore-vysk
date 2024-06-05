@@ -1,5 +1,65 @@
 [
   {
+    "name": "CustomHeader",
+    "schema": {
+      "title": "Custom Header",
+      "description": "CustomHeader Wrapper",
+      "type": "object",
+			"required": [
+				"logoLink"
+			],
+      "properties": {
+        "logoLink": {
+          "title": "Link Path",
+          "type": "object",
+          "properties": {
+            "text": {
+              "title": "Text",
+              "type": "string"
+            },
+            "url": {
+              "title": "URL",
+              "type": "string"
+            }
+          }
+        },
+				"logo": {
+          "title": "Logo",
+          "type": "object",
+          "required": ["src"],
+          "properties": {
+            "src": {
+              "title": "Image",
+              "type": "string",
+              "widget": {
+                "ui:widget": "media-gallery"
+              }
+            },
+            "alt": {
+              "title": "Alternative Label",
+              "type": "string"
+            },
+            "link": {
+              "title": "Logo Link",
+              "type": "object",
+              "required": ["url", "title"],
+              "properties": {
+                "url": {
+                  "title": "Link URL",
+                  "type": "string"
+                },
+                "title": {
+                  "title": "Link Title",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
     "name": "BannerSlider",
     "schema": {
       "title": "Banner Slider 2",
@@ -31,6 +91,122 @@
               "type": "string"
             }
           }
+        }
+      }
+    }
+  },
+	{
+    "name": "BannerCarousel",
+    "schema": {
+      "title": "Carousel of banners",
+      "description": "Is a list of images in a carousel mode",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "itemsPerPage": {
+          "title": "Items per page",
+          "type": "number",
+          "default": 1
+        },
+        "infiniteMode": {
+          "title": "Infinite mode",
+          "type": "boolean",
+          "default": true
+        },
+        "list": {
+          "title": "Item List",
+          "type": "array",
+          "items": {
+            "title": "Banner",
+            "type": "object",
+            "properties": {
+              "imageDesktop": {
+                "title": "Image Desktop",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "imageMobile": {
+                "title": "Image Mobile",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+							"linkName": {
+                "title": "Link Name",
+                "type": "string"
+              },
+              "url": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
+    "name": "InfoCardSlider",
+    "schema": {
+      "title": "Info Card Slider",
+      "description": "Is a list of infocardds in a carousel mode",
+      "type": "object",
+      "required": [],
+      "properties": {
+				"title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+        "itemsPerPage": {
+          "title": "Items per page",
+          "type": "number",
+          "default": 6
+        },
+        "infiniteMode": {
+          "title": "Infinite mode",
+          "type": "boolean",
+          "default": true
+        },
+        "list": {
+          "title": "Item List",
+          "type": "array",
+          "items": {
+            "title": "Banner",
+            "type": "object",
+            "properties": {
+              "imageDesktop": {
+                "title": "Image Desktop",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "url": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
+    "name": "styleTabs",
+    "schema": {
+      "title": "Style Tabs",
+      "description": "Style tabs contains a banner and 4 products",
+      "type": "object",
+      "required": [],
+      "properties": {
+				"title": {
+          "title": "Headtitle",
+          "type": "string"
         }
       }
     }

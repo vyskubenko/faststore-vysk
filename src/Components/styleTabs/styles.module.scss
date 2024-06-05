@@ -1,0 +1,59 @@
+.styleTabs{
+
+  margin:0 var(--fs-grid-gap-4);
+
+  [data-fs-link] {
+    @import '@faststore/ui/src/components/atoms/Link/styles.scss';
+    
+  }
+}
+
+.styleTabs__header {
+  display: flex; 
+  justify-content: center;
+
+  border-bottom: 1px solid #D8D8D8;
+
+  [data-fs-link] {
+    padding: 20px;
+    margin: 0 4%;
+    cursor: pointer;
+  }
+
+  [data-fs-link-variant='display'] {
+    box-shadow: 0 4px 0 0 #FE951C;;
+    cursor: default;
+  }
+}
+
+.styleTabs__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.styleTabs__gallery {
+  @import '@faststore/ui/src/components/organisms/ProductGrid/styles.scss';
+  @import '@faststore/ui/src/components/atoms/Price/styles.scss';
+
+  @import '@faststore/ui/src/components/atoms/Button/styles.scss';
+
+
+
+  @import '@faststore/ui/src/components/molecules/ProductCard/styles.scss';
+
+  [data-fs-product-grid] {
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+
+}
+
+.styleTabs__banner {
+
+}
+
+.styleTabs__col {
+  width: calc(50% - 20px);
+}

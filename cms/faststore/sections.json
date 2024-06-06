@@ -324,16 +324,78 @@
           "type": "string",
 					"enumNames": [
 						"orange",
-						"center",
-						"left"
+						"Light Yellow"
 					],
 					"enum": [
 						"orange",
-						"center",
-						"left"
+						"light-yellow"
 					],
 					"default": "orange"
         }
+      }
+    }
+  },
+	{
+    "name": "shelfTabs",
+    "schema": {
+      "title": "Tabs with Shelf Carousel",
+      "description": "Tabs contains a Shelf Carousel",
+      "type": "object",
+      "required": [],
+      "properties": {
+				"title": {
+					"title": "Title",
+					"type": "string"
+				},
+        "tabs": {
+          "title": "Tabs",
+          "type": "array",
+          "items": {
+            "title": "Tab",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Title",
+                "type": "string"
+              },
+              "productClusterIds": {
+                "title": "productClusterIds",
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
+    "name": "ShelfWithVideo",
+    "schema": {
+      "title": "Shelf with Video",
+      "description": "Section with shelf and video",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+				"subtitle": {
+          "title": "Subtitle",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description Text",
+          "type": "string"
+        },
+				"productClusterIds": {
+          "title": "productClusterIds",
+          "type": "number"
+        },
+				"video": {
+					"title": "video href",
+					"type": "string"
+				}
       }
     }
   }

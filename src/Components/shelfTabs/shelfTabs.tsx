@@ -1,5 +1,5 @@
-import React, {useState, useEffect, ReactElement, FC} from "react";
-import { Skeleton, Link,Carousel, Button} from "@faststore/ui";
+import React, {useState, useEffect, ReactElement, FC } from "react";
+import { Skeleton, Link,Carousel} from "@faststore/ui";
 
 import styles from "./styles.module.scss";
 
@@ -9,24 +9,18 @@ import { useProductsQuery } from "@faststore/core";
 import CustomProductCard from "../CustomProductCard/CustomProductCard";
 
 
-interface banner {
-  title: string;
-  image: string;
-  linkText: string;
-  href: string;
-}
-
 interface tabs {
   title: string;
-  banner: banner;
   productClusterIds: number;
 }
 export interface styleTabsProps {
+  title: string;
   tabs: tabs[];
 }
 
 
-const styleTabs: FC<styleTabsProps> = ({
+const shelfTabs: FC<styleTabsProps> = ({
+  title,
   tabs
 }): ReactElement => {
   const [activeTab, setActiveTab] = useState(0);
@@ -37,7 +31,7 @@ const styleTabs: FC<styleTabsProps> = ({
 
   const fetchedData = useProductsQuery(
     {
-      first: 4,
+      first: 16,
       term: '',
       selectedFacets: [{ key: 'productClusterIds', value: collectionId }]
     }
@@ -53,44 +47,32 @@ const styleTabs: FC<styleTabsProps> = ({
   }, [fetchedData]); 
 
   return (
-    <section className={styles.styleTabs}>
-      <div className={`${styles.styleTabs__header} tab__header`}>
-        {tabs.map((item, index) => (
-          <Link 
-            key={index}
-            variant={index === activeTab ? "display" : "default"}
-            onClick={() => {
-              //setLoading(true); 
-              setActiveTab(index)}
-            }
-          >
-            {item.title}
-          </Link>
-        ))}
-      </div>
-      <div className={`${styles.styleTabs__container} tab__container`}>
+    <section className={styles.shelfTabs}>
+      <div className={`${styles.shelfTabs__header} tab__header`}>
+        <h4 className={styles.shelfTabs__title}>{title}</h4>
 
-        <div className={`${styles.styleTabs__col} ${styles.styleTabs__banner}`}>
-          <div className={styles.styleTabs__banner__img} key={tabs[activeTab].banner.title} data-fs-hero-image>
-                <picture data-fs-image>
-                  <source
-                    media="(max-width: 799px)"
-                    srcSet={tabs[activeTab].banner.image}
-                    data-fs-image
-                  />
-                  <img src={tabs[activeTab].banner.image} alt={tabs[activeTab].banner.title} data-fs-image />
-                </picture>
-                <div className={styles.carouselBanners__content}>
-                  <h3 className={styles.carouselBanners__title}>{tabs[activeTab].banner.title}</h3>
-                  <Button className={styles.carouselBanners__button} variant="primary">{tabs[activeTab].banner.linkText}</Button>
-                </div>
-            </div>
+        <div className={styles.shelfTabs__links}>
+          {tabs.map((item, index) => (
+            <Link 
+              key={index}
+              variant={index === activeTab ? "display" : "default"}
+              onClick={() => {
+                //setLoading(true); 
+                setActiveTab(index)}
+              }
+            >
+              {item.title}
+            </Link>
+          ))}
         </div>
-        <div className={`${styles.styleTabs__col} ${styles.styleTabs__gallery} tab__content`}>
+        
+      </div>
+      <div className={`${styles.shelfTabs__container} tab__container`}>
+        <div className={`${styles.shelfTabs__gallery} tab__content`}  data-fs-carousel-container>
           {loading ? (
             <Skeleton size={{ width: '100%', height: '100%' }} borderRadius="5px" />
           ) : (
-            <Carousel itemsPerPage={3} variant="scroll" controls="navigationArrows">
+            <Carousel itemsPerPage={4} variant="scroll" controls="navigationArrows" >
                 {productsJson &&
                   productsJson.map((product: any, idx: number) => (
                     <CustomProductCard
@@ -106,6 +88,6 @@ const styleTabs: FC<styleTabsProps> = ({
   );
 };
 
-export default styleTabs;
+export default shelfTabs;
 
 

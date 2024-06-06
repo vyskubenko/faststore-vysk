@@ -8,8 +8,13 @@
     overflow: hidden;
     padding: 10px 20px;
     text-decoration: none;
+    transition: all ease 0.3s;
 
     div {
         background: none !important;
+    }
+
+    &:hover {
+        background-color: var(--fs-color-main-3);
     }
 }

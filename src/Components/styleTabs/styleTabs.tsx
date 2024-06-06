@@ -1,7 +1,9 @@
 import React, {useState, useEffect, ReactElement, FC} from "react";
-import { List, Link,ProductGrid, ProductGridItem,ProductCard,ProductCardImage,ProductCardContent, Button} from "@faststore/ui";
+import { Skeleton, Link,ProductGrid, ProductGridItem,ProductCard,ProductCardImage,ProductCardContent, Button} from "@faststore/ui";
 
 import styles from "./styles.module.scss";
+
+import { useProductsQuery } from "@faststore/core";
 
 interface banner {
   title: string;
@@ -20,95 +22,31 @@ export interface styleTabsProps {
 }
 
 
-const links = [
-  {
-    title: 'Wilderness Wanderer',
-    banner: 
-      {
-        title: 'Discover Boundless Adventures',
-        linkText: 'Shop All Camping',
-        href: '/',
-        image: 'https://vysk.vtexassets.com/unsafe/768x0/center/middle/https%3A%2F%2Fstoreframework.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F1e46eee3-5cd9-4911-8a81-501fe9c744fe___57d4662d50c07e760e6e74d8da282508.jpg',
-      }
-    ,
-    productClusterIds: "137"
-  },
-  {
-    title: 'Snowbound Adventurer',
-    banner: 
-      {
-        title: 'testet Boundless Adventures',
-        linkText: 'Shop All Camping',
-        href: '/',
-        image: 'https://vysk.vtexassets.com/unsafe/768x0/center/middle/https%3A%2F%2Fstoreframework.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F1e46eee3-5cd9-4911-8a81-501fe9c744fe___57d4662d50c07e760e6e74d8da282508.jpg',
-      }
-    ,
-    productClusterIds: "138"
-  },
-  {
-    title: 'Weekend Warrior',
-    banner:
-      {
-        title: 'Discover ewtw egwge ',
-        linkText: 'Shop All Camping',
-        href: '/',
-        image: 'https://vysk.vtexassets.com/unsafe/768x0/center/middle/https%3A%2F%2Fstoreframework.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F1e46eee3-5cd9-4911-8a81-501fe9c744fe___57d4662d50c07e760e6e74d8da282508.jpg',
-      }
-    ,
-    productClusterIds: "139"
-  },
-]
-
-const fetchData = async (clusterId: any) => {
-  try {
-    const terms: any = `{
-      "first":4,
-      "after":"0",
-      "sort":
-      "score_desc",
-      "term":"",
-      "selectedFacets":[{"key":"productClusterIds","value":"${clusterId}"}]
-    }`;
-
-    const response = await fetch(`/api/graphql?operationName=ClientManyProductsQuery&operationHash=c0d7d2ae1d5aaae5d50eea683b389377c36fb57d&variables=${encodeURIComponent(terms)}`);
-    const data = await response.json();
-
-    return data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error; // Re-throwing the error to handle it in the calling function
-  }
-};
-
 const styleTabs: FC<styleTabsProps> = ({
   tabs
 }): ReactElement => {
   const [activeTab, setActiveTab] = useState(0);
-  const [products, setProducts] = useState<any>(null);
-  const [productsJson, setproductsJson] = useState<any>(null);
+  const [productsJson, setProductsJson] = useState<any>(null);
+  const [loading, setLoading] = useState(true); 
 
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const fetchedData = await fetchData(tabs[activeTab].productClusterIds);
-        setProducts(fetchedData);
-      } catch (error) {
-        // Handle error
-        console.error("Error fetching data:", error);
-      }
-    };
+  const collectionId = String(tabs[activeTab].productClusterIds);
 
-    fetchDataAsync();
-  }, [activeTab]); // Fetch data whenever activeTab changes
-
-  useEffect(() => {
-    if (products) {
-      const edges = products.data?.search.products.edges;
-      const productsJson = edges?.map((edge: any) => edge.node);
-      setproductsJson(productsJson)
-      console.log(productsJson);
+  const fetchedData = useProductsQuery(
+    {
+      first: 4,
+      term: '',
+      selectedFacets: [{ key: 'productClusterIds', value: collectionId }]
     }
-  }, [products, activeTab]);
+  )
+
+  useEffect(() => {
+    if (fetchedData) {
+      const edges = fetchedData?.search.products.edges;
+      const productsJson = edges?.map((edge: any) => edge.node);
+      setProductsJson(productsJson); 
+      setLoading(false); 
+    }
+  }, [fetchedData]); 
 
   return (
     <section className={styles.styleTabs}>
@@ -117,7 +55,10 @@ const styleTabs: FC<styleTabsProps> = ({
           <Link 
             key={index}
             variant={index === activeTab ? "display" : "default"}
-            onClick={() => setActiveTab(index)}
+            onClick={() => {
+              //setLoading(true); 
+              setActiveTab(index)}
+            }
           >
             {item.title}
           </Link>
@@ -142,7 +83,10 @@ const styleTabs: FC<styleTabsProps> = ({
             </div>
         </div>
         <div className={`${styles.styleTabs__col} ${styles.styleTabs__gallery} tab__content`}>
-          <ProductGrid>
+          {loading ? (
+            <Skeleton size={{ width: '100%', height: '100%' }} borderRadius="5px" />
+          ) : (
+            <ProductGrid>
               {productsJson && productsJson.map((product: any, idx: number) => (
                 <ProductGridItem key={idx}>
                   <ProductCard>
@@ -161,13 +105,13 @@ const styleTabs: FC<styleTabsProps> = ({
                         formatter: (price: number) =>
                           price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
                       }}
-                      onButtonClick={() => {}}
+                      onButtonClick={() => { }}
                     />
                   </ProductCard>
                 </ProductGridItem>
               ))}
-          </ProductGrid>
-
+            </ProductGrid>
+          )}
         </div>
       </div>
     </section>

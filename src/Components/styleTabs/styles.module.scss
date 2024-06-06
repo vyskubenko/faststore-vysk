@@ -22,11 +22,13 @@
     padding: 20px;
     margin: 0 4%;
     cursor: pointer;
+    transition: all ease 0.3s;
   }
 
   [data-fs-link-variant='display'] {
     box-shadow: 0 4px 0 0 #FE951C;;
     cursor: default;
+    pointer-events: none;
   }
 }
 

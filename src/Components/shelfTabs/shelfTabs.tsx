@@ -1,5 +1,5 @@
 import React, {useState, useEffect, ReactElement, FC} from "react";
-import { Skeleton, Link,ProductGrid, ProductGridItem,ProductCard,ProductCardImage,ProductCardContent, Button} from "@faststore/ui";
+import { Skeleton, Link,Carousel, Button} from "@faststore/ui";
 
 import styles from "./styles.module.scss";
 
@@ -90,14 +90,15 @@ const styleTabs: FC<styleTabsProps> = ({
           {loading ? (
             <Skeleton size={{ width: '100%', height: '100%' }} borderRadius="5px" />
           ) : (
-            <ProductGrid>
-              {productsJson && productsJson.map((product: any, idx: number) => (
-                <CustomProductCard
+            <Carousel itemsPerPage={3} variant="scroll" controls="navigationArrows">
+                {productsJson &&
+                  productsJson.map((product: any, idx: number) => (
+                    <CustomProductCard
                       product={product}
                       idx={idx}
-                ></CustomProductCard>
-              ))}
-            </ProductGrid>
+                    ></CustomProductCard>
+                  ))}
+              </Carousel>
           )}
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 .styleTabs{
 
-  margin:0 var(--fs-grid-gap-4);
+  margin:var(--fs-spacing-8) var(--fs-grid-gap-4);
   margin-bottom: var(--fs-spacing-8);
 
   [data-fs-link] {
@@ -40,13 +40,6 @@
 
 .styleTabs__gallery {
   @import '@faststore/ui/src/components/organisms/ProductGrid/styles.scss';
-  @import '@faststore/ui/src/components/atoms/Price/styles.scss';
-
-  @import '@faststore/ui/src/components/atoms/Button/styles.scss';
-
-
-
-  @import '@faststore/ui/src/components/molecules/ProductCard/styles.scss';
 
   [data-fs-product-grid] {
     grid-template-columns: repeat(2, 1fr);
@@ -83,7 +76,6 @@
 .carouselBanners__content {
   position: absolute;
   top: 10%;
-  z-index: 2;
   text-align: center;
   width: 100%;
   padding: 0 30px;

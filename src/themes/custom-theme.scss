@@ -47,18 +47,22 @@ $basepath: '../assets';
     --fs-text-face-title: "Neue Plak", serif;
 
     // NUMERIC SCALE
+
+    --fs-text-scale-desktop              : 1.27;
     --fs-text-size-base                  : 16px; // 1rem
 
     --fs-text-size-0                     : 12px; // Smallest
-    --fs-text-size-1                     : 14px; // Smaller                               // Mobile    Desktop
-    --fs-text-size-2                     : var(--fs-text-size-base);                      // 16px      16px
-    --fs-text-size-3                     : calc(var(--fs-text-size-2) * var(--fs-scale)); // 18px      20px
-    --fs-text-size-4                     : calc(var(--fs-text-size-3) * var(--fs-scale)); // 20px      25px
-    --fs-text-size-5                     : calc(var(--fs-text-size-4) * var(--fs-scale)); // 23px      31px
-    --fs-text-size-6                     : calc(var(--fs-text-size-5) * var(--fs-scale)); // 26px      39px
-    --fs-text-size-7                     : calc(var(--fs-text-size-6) * var(--fs-scale)); // 29px      48px
-    --fs-text-size-8                     : calc(var(--fs-text-size-7) * var(--fs-scale)); // 33px      61px
+    --fs-text-size-1                     : 14px; // Smaller                               
+    --fs-text-size-2                     : var(--fs-text-size-base);                      
+    --fs-text-size-3                     : calc(var(--fs-text-size-2) * var(--fs-scale)); 
+    --fs-text-size-4                     : calc(var(--fs-text-size-3) * var(--fs-scale)); 
+    --fs-text-size-5                     : calc(var(--fs-text-size-4) * var(--fs-scale)); 
+    --fs-text-size-6                     : calc(var(--fs-text-size-5) * var(--fs-scale)); 
+    --fs-text-size-7                     : calc(var(--fs-text-size-6) * var(--fs-scale)); 
+    --fs-text-size-8                     : calc(var(--fs-text-size-7) * var(--fs-scale)); 
 
+
+    --fs-text-size-headtitle             : 102px;
 
     // --------------------------------------------------------
     // Spacing (UI Essentials)
@@ -67,7 +71,9 @@ $basepath: '../assets';
     // --------------------------------------------------------
     // Grid & Layout (UI Essentials)
     // --------------------------------------------------------
-    
+
+    --fs-product-card-title-color: var(--fs-color-main-4);
+    --fs-product-card-title-size: var(--fs-text-size-4);
 
     // --------------------------------------------------------
     // Interactive Controls (UI Essentials)

@@ -1,0 +1,44 @@
+@import '../../themes/_buttons.scss';
+
+.shelfTabs{
+
+  margin:var(--fs-spacing-8) var(--fs-grid-gap-4);
+  margin-bottom: var(--fs-spacing-8);
+
+  [data-fs-link] {
+    @import '@faststore/ui/src/components/atoms/Link/styles.scss';
+    
+  }
+}
+
+.shelfTabs__header {
+  display: flex; 
+  justify-content: center;
+
+  border-bottom: 1px solid #D8D8D8;
+  margin-bottom: var(--fs-spacing-7);
+
+  [data-fs-link] {
+    padding: 20px;
+    margin: 0 4%;
+    cursor: pointer;
+    transition: all ease 0.3s;
+  }
+
+  [data-fs-link-variant='display'] {
+    box-shadow: 0 4px 0 0 #FE951C;;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.shelfTabs__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.shelfTabs__gallery {
+  @import '@faststore/ui/src/components/organisms/ProductGrid/styles.scss';
+
+}

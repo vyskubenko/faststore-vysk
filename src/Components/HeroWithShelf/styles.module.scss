@@ -1,0 +1,121 @@
+@import '../../themes/_buttons.scss';
+
+.HeroWithShelf{
+
+  margin:var(--fs-spacing-8) 0;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  [data-fs-link] {
+    @import '@faststore/ui/src/components/atoms/Link/styles.scss';
+    
+  }
+
+  &[data-fs-background="orange"] {
+    background-color: #CB542B;
+    color:#FFF;
+
+    .HeroWithShelf__content {
+      width: 60%;
+    }
+    .HeroWithShelf__banner {
+      width: 40%;
+    }
+
+    [data-fs-product-card-content] {
+      * {
+        color:#FFF !important;
+      }
+    }
+
+  }
+  
+}
+
+.HeroWithShelf__title {
+  font-size: var(--fs-text-size-headtitle);
+  font-family: var(--fs-text-face-title);
+  margin-bottom: var(--fs-spacing-4);
+  text-transform: uppercase
+}
+
+.HeroWithShelf__description {
+  font-size: var(--fs-text-size-3);
+  margin-bottom: var(--fs-spacing-5);
+}
+
+.HeroWithShelf__title,
+.HeroWithShelf__description {
+  width: 60%;
+}
+
+.HeroWithShelf__shelf {
+  @import "@faststore/ui/src/components/molecules/Carousel/styles.scss";
+
+  --fs-product-card-bkg-color: none;
+  --fs-color-body-bkg:none;
+  
+  [data-fs-product-card] {
+    &:hover {
+      box-shadow: none ;
+      border-color: transparent;
+    }
+  }
+  [data-fs-product-card-content] {
+    border: none;
+  }
+
+
+   [data-fs-carousel] [data-fs-carousel-controls] {
+    opacity: 1;
+  }
+
+   [data-fs-carousel] [data-fs-carousel-control] {
+      width: 40px;
+      height: 40px;
+      display: block;
+      padding: 0;
+
+      &[disabled] {
+        opacity: 0.3;
+      }
+  }
+
+   [data-fs-carousel] [data-fs-carousel-control] [data-fs-button-wrapper] {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFF;
+      span,svg {
+        display: block;
+      }
+  }
+}
+
+.HeroWithShelf__col {
+  align-items: center;
+}
+
+.HeroWithShelf__banner__img {
+
+  [data-fs-image] {
+    height: 100%;
+  }
+}
+
+.HeroWithShelf__content {
+  padding:var(--fs-spacing-8) calc(var(--fs-spacing-8) * 2);
+}
+
+.HeroWithShelf__link { 
+  @extend %primary-button;
+  background: rgb(#2B2B2B, 0.2);
+  transition: all ease 0.3s;
+
+  &:hover {
+    background: rgb(#2B2B2B, 0.4);
+  }
+}
+

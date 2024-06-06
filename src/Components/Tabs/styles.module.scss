@@ -1,5 +1,5 @@
 .infoCardSlider {
-  margin: 60px 0;
+  margin:var(--fs-spacing-8) 0;
   padding: 0 20px;
 
   @import "@faststore/ui/src/components/atoms/Button/styles.scss";

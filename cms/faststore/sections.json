@@ -518,6 +518,43 @@
         }
       }
     }
+  },
+  {
+    "name": "topCategories",
+    "schema": {
+      "title": "Top Categories/Brands Card",
+      "type": "object",
+      "required": [],
+      "properties": {
+				"title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+        "list": {
+          "title": "Item List",
+          "type": "array",
+          "items": {
+            "title": "Item",
+            "type": "object",
+            "properties": {
+              "image": {
+                "title": "Image",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "url": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 ]
 

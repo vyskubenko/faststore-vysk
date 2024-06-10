@@ -77,6 +77,7 @@ const shelfTabs: FC<styleTabsProps> = ({
                   productsJson.map((product: any, idx: number) => (
                     <CustomProductCard
                       product={product}
+                      key={product}
                       idx={idx}
                     ></CustomProductCard>
                   ))}

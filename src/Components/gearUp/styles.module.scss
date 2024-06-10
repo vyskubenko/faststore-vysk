@@ -1,0 +1,248 @@
+@import '../../themes/_buttons.scss';
+
+$basepath: '../../assets';
+
+.gearUp{
+
+  margin:var(--fs-spacing-8) 0;
+  margin-bottom: var(--fs-spacing-8);
+
+  padding:var(--fs-spacing-10) var(--fs-grid-gap-4);;
+  color: #FFF;
+  text-align: center;
+  background-color: #688243;
+
+  [data-fs-link] {
+    @import '@faststore/ui/src/components/atoms/Link/styles.scss';
+    
+  }
+}
+
+.gearUp__header {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+
+  [data-fs-link] {
+    padding: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    font-size: var( --fs-text-size-3 );
+    text-transform: capitalize;
+    padding: 5px 20px;
+    border-radius: 20px;
+  }
+
+  [data-fs-link-variant='display'] {
+    background: rgb(0,0,0, 0.3);
+    cursor: default;
+    pointer-events: none;
+    margin: 0 20px;
+  }
+
+  [data-fs-divider] {
+    width: 30px;
+    height: 1px;
+    min-width: 20px;
+    background: #FFF;
+    margin: 0 var(--fs-spacing-4);
+  }
+}
+
+
+
+.gearUp__title {
+  font-size: var(--fs-text-size-8);
+  font-family: var(--fs-text-face-title);
+  margin-bottom: var(--fs-spacing-4);
+  text-transform: uppercase;
+}
+
+
+
+.gearUp__container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: var(--fs-spacing-11);
+}
+
+
+.gearUp__parts__container {
+  width: 70%;
+
+  .gearUp__parts__container__wrapper {
+    display: flex;
+    flex-direction: initial;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-right: calc(var(--fs-spacing-5) * -1);
+  }
+
+  .gearUp__parts__link {
+    display: block;
+    text-align: left;
+    color: #FFF;
+    text-decoration: none;
+    width: calc(25% - var(--fs-spacing-5));
+    height: auto;
+    margin: 0 var(--fs-spacing-5) var(--fs-spacing-5) 0;
+    font-size: var(--fs-text-size-3);
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: var(--fs-spacing-3);
+      }
+
+  }
+}
+
+.gearUp__category {
+  background: url('#{$basepath}/maskGear.png') top center repeat;
+  text-align: center;
+  padding: 2% 6% 4.5% 6%;
+  width: 30%;
+  margin-right: var(--fs-spacing-8) ;
+  transition: all ease 0.3s;
+  background-size: 100%;
+
+}
+
+.gearUp__category__image {
+  position: relative;
+  padding: 20px 0;
+}
+
+.gearUp__category__parts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  -webkit-box-flex: 1;
+  align-items: stretch;
+  align-content: stretch;
+  flex-flow: column;
+  z-index: 2;
+  border-bottom: 1px dashed rgba(255,255,255, 0.7);
+
+  &::after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 5px 9px 5px 0;
+    border-color: transparent #FFF transparent transparent;
+    transform: rotate(0deg);
+    display: block;
+    position: absolute;
+    bottom:-5px;
+    left:100%;
+    opacity: 0.7;
+  }
+
+  &::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 5px 0 5px 9px;
+    border-color: transparent transparent transparent #FFF;
+    transform: rotate(0deg);
+    display: block;
+    position: absolute;
+    bottom:-5px;
+    right:100%;
+    opacity: 0.7;
+  }
+}
+
+.gearUp__category__parts__links {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  border-top: 1px dashed rgba(255,255,255, 0.7);
+
+  &::after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 5px 9px 5px 0;
+    border-color: transparent #FFF transparent transparent;
+    transform: rotate(0deg);
+    display: block;
+    position: absolute;
+    top:-5px;
+    left:100%;
+    opacity: 0.7;
+  }
+
+  &::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 5px 0 5px 9px;
+    border-color: transparent transparent transparent #FFF;
+    transform: rotate(0deg);
+    display: block;
+    position: absolute;
+    top:-5px;
+    right:100%;
+    opacity: 0.7;
+  }
+
+  
+
+  
+}
+
+.gearUp__category__parts__links__button {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  font-size: var(--fs-text-size-4);
+  text-transform: uppercase;
+  font-family: var(--fs-text-face-title);
+  font-weight: bold;
+  opacity: 0;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  
+  &[data-fs-link-variant="display"] {
+    cursor: default;
+  }
+
+  &[data-fs-link-variant="display"],
+  &:hover {
+    opacity: 1;
+    background: rgb(68,117,144,0.3);
+    background: linear-gradient(0deg, rgba(68,117,144,0.7) 0%, rgba(112,156,180,0.7) 100%);
+
+    &::before {
+      content: "";
+      background: url('#{$basepath}/noiseTexture.png') center;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.17;
+      position: absolute;
+    }
+  }
+}

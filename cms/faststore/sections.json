@@ -398,5 +398,85 @@
 				}
       }
     }
+  },
+  {
+    "name": "gearUp",
+    "schema": {
+      "title": "Gear Up Box",
+      "description": "Box containain tabs with categories link",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+				"description": {
+          "title": "description",
+          "type": "string"
+        },
+        "tabs": {
+          "title": "Tabs",
+          "type": "array",
+          "items": {
+            "title": "Tab",
+            "type": "object",
+            "properties": {
+              "tabImage": {
+                "title": "Image",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "tabTitle": {
+                "title": "Name",
+                "type": "string"
+              },
+              "parts": {
+                "title": "Parts of each tab",
+                "description": "Head, upper body, etc",
+                "type": "array",
+                "items": {
+                  "title": "Tab",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "title": "title",
+                      "type": "string"
+                    },
+                    "height": {
+                      "title": "Height of the box",
+                      "type": "number"
+                    },
+                    "links": {
+                      "title": "Links for each cat of the tab",
+                      "type": "array",
+                      "items": {
+                        "title": "Link",
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "title": "title",
+                            "type": "string"
+                          },
+                          "image": {
+                            "title": "Image",
+                            "type": "string",
+                            "widget": { "ui:widget": "image-uploader" }
+                          },
+                          "href": {
+                            "title": "href",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 ]

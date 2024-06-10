@@ -7,5 +7,6 @@ import imageRow from './imageRow/imageRow'
 import HeroWithShelf from './HeroWithShelf/HeroWithShelf'
 import shelfTabs from './shelfTabs/shelfTabs'
 import ShelfWithVideo from './ShelfWithVideo/ShelfWithVideo'
+import gearUp from './gearUp/gearUp'
 
-export default { BannerSlider, BannerCarousel, CustomHeader, InfoCardSlider, styleTabs, imageRow, HeroWithShelf, shelfTabs, ShelfWithVideo}
+export default { BannerSlider, BannerCarousel, CustomHeader, InfoCardSlider, styleTabs, imageRow, HeroWithShelf, shelfTabs, ShelfWithVideo, gearUp}

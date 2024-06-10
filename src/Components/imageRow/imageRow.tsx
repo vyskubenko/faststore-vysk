@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, Button, Link } from "@faststore/ui";
+import { Link } from "@faststore/ui";
 
 import styles from "./styles.module.scss";
 
@@ -24,7 +24,7 @@ const ImageRow = ({
         
         <ul className={styles.imageRow__list}>
           {list.map(({ image, name, url }) => (
-            <li className={styles.imageRow__item} key={url}>
+            <li className={styles.imageRow__item} key={image}>
               <Link href={url}>
                 <picture data-fs-image>
                   <source

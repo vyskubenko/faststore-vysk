@@ -1,0 +1,66 @@
+@import '../../themes/_buttons.scss';
+
+.infoCardShelf{
+
+  margin:var(--fs-spacing-8) var(--fs-grid-gap-4);
+  margin-bottom: var(--fs-spacing-8);
+
+  display: flex;
+  justify-content: space-between;
+
+  [data-fs-link] {
+    @import '@faststore/ui/src/components/atoms/Link/styles.scss';
+    
+  }
+
+  > div {
+    flex-grow: 1;
+  }
+}
+
+.infoCardShelf__desc {
+  margin-bottom: var(--fs-spacing-4);
+}
+
+.infoCardShelf__text {
+  padding-right: var(--fs-spacing-2);
+  width: 30%;
+  align-self: center;
+}
+
+
+.infoCardShelf__title {
+  font-size: var(--fs-text-size-8);
+  font-family: var(--fs-text-face-title);
+  margin-bottom: var(--fs-spacing-4);
+  text-transform: uppercase;
+  color: var(--fs-color-main-3);
+}
+
+.infoCardShelf__button {
+  @extend %primary-button;
+}
+
+.infoCardShelf__banner {
+  padding: 0 30px;
+  
+  [data-fs-hero-image] {
+    height: 100%;
+  }
+}
+
+
+.infoCardShelf__shelf {
+  width: 20%;
+  [data-fs-product-card-image] {
+    width: 40% !important;
+  }
+}
+
+.infoCardShelf__shelf__title {
+  font-size: var(--fs-text-size-4);
+  font-family: var(--fs-text-face-title);
+  margin-bottom: var(--fs-spacing-4);
+  text-transform: uppercase;
+  color: var(--fs-color-main-3);
+}

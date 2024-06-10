@@ -478,5 +478,47 @@
         }
       }
     }
+  },
+  {
+    "name": "infoCardShelf",
+    "schema": {
+      "title": "Info Card with 3 products Shelf",
+      "description": "Info Card with 3 products Shelf",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+				"description": {
+          "title": "description",
+          "type": "string"
+        },
+				"shelfTitle": {
+          "title": "Shelf Ttitle",
+          "type": "string"
+        },
+				"productClusterIds": {
+          "title": "productClusterIds",
+          "type": "number"
+        },
+        "linkText": {
+          "title": "linkText",
+          "type": "string"
+        },
+				"href": {
+					"title": "href",
+					"type": "string"
+				},
+        "banner": {
+          "title": "Image",
+          "type": "string",
+          "widget": { "ui:widget": "image-uploader" }
+        }
+      }
+    }
   }
 ]
+
+

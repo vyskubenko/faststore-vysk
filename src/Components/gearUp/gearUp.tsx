@@ -1,5 +1,5 @@
-import React, {useState, useEffect, ReactElement, FC } from "react";
-import { Skeleton, Link,Carousel} from "@faststore/ui";
+import React, {useState, ReactElement, FC } from "react";
+import { Link } from "@faststore/ui";
 
 import styles from "./styles.module.scss";
 

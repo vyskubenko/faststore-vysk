@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement, FC } from "react";
 import { Link } from "@faststore/ui";
 
 import styles from "./styles.module.scss";
@@ -13,10 +13,12 @@ export interface topCategoriesProps {
   title: string;
 }
 
-const topCategories = ({
+
+const topCategories: FC<topCategoriesProps> = ({
   list,
   title
-}: topCategoriesProps) => {
+}): ReactElement => {
+
   return (
     <section className={styles.topCategories}>
 

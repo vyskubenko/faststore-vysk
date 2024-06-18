@@ -55,6 +55,72 @@
               }
             }
           }
+        },
+        "topbar": {
+          "title": "Top bar Item List",
+          "type": "array",
+          "items": {
+            "title": "item top bar",
+            "type": "object",
+            "properties": {
+              "infoText": {
+                "title": "Text",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "region": {
+          "title": "Regionalizaton",
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Use Regionalization?",
+              "default": true
+            }
+          }
+        },
+        "navButtons": {
+          "title": "navButtons Item List",
+          "type": "array",
+          "items": {
+            "title": "navButtons Item",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Text",
+                "type": "string"
+              },
+              "icon": {
+                "title": "icon",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "href": {
+                "title": "href",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "menu": {
+          "title": "Main Menu Item List",
+          "type": "array",
+          "items": {
+            "title": "main menu first level",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Text",
+                "type": "string"
+              },
+              "href": {
+                "title": "href",
+                "type": "string"
+              }
+            }
+          }
         }
       }
     }

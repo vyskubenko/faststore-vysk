@@ -1,7 +1,7 @@
 .customHeader {
   background-color: #FFF;
-
 }
+
 
 
 .customHeader__wrapper {
@@ -9,6 +9,16 @@
   align-items: center;
   width: 100%;
   margin: 0 auto;
+  padding: var(--fs-spacing-3) 0;
+
+  [data-fs-search-input] {
+    margin: 0 var(--fs-spacing-7);
+    width: 100%;
+  }
+}
+
+.customHeader__logo {
+  min-width: 55px !important;
 }
 
 .section {
@@ -36,3 +46,103 @@
   @import "@faststore/ui/src/components/organisms/SearchInput/styles.scss";
   @import "@faststore/ui/src/components/organisms/Navbar/styles.scss";
 }
+
+
+.customHeader__menu {
+  [data-fs-navbar-links-list-item] {
+    --fs-navbar-links-link-padding-notebook:0 20px;
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+.topBar {
+  background-color: var(--fs-color-main-1);
+  color:#FFF;
+  text-align: center;
+  display: flex;
+  
+}
+
+.topBar__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.topBar__list {
+  display: flex;
+  margin:0 auto;
+  padding: var(--fs-spacing-3) 0;
+  .topBar__list__item {
+    padding: 0  var(--fs-spacing-4);
+    font-size: var(--fs-text-size-1);
+
+    border-right: 1px solid #FFF;
+
+    &:last-child {
+      border:none;
+    }
+  }
+}
+
+.navbarButtons {
+  display: flex;
+}
+
+.navButtons__item {
+  margin: 0 var(--fs-spacing-3);
+
+  
+  [data-fs-icon] {
+    color:var(--fs-color-main-6) !important;
+  }
+
+  [data-fs-badge][data-fs-badge-counter=true] [data-fs-badge-wrapper] {
+    background-color: var(--fs-color-main-6);
+  }
+}
+
+.topbar__regionBar {
+
+  [data-fs-button] * {
+    color:#FFF;
+  }
+  [data-fs-button]:hover *,
+  [data-fs-button]:active *  {
+    color: var(--fs-color-main-1);
+  }
+
+  [data-fs-button-wrapper] > span {
+    display: flex;
+    align-items: center;
+  }
+
+  [data-fs-icon] {
+    margin-right: 10px;
+  }
+}
+
+.customHeader__search {
+  
+  [data-fs-search-input-field] [data-fs-search-input-field-input] {
+    background-color: #F6F9FF;
+    border-radius: 30px;
+    border:1px solid #D3DEF1;
+    color:var(--fs-color-main-6);
+    font-size:var(--fs-text-size-2);
+  }
+
+  [data-fs-search-input-field] {
+    // --------------------------------------------------------
+    // Design Tokens for Search Input Field
+    // --------------------------------------------------------
+    --fs-search-input-field-height-mobile                 :40px;
+    --fs-search-input-field-height-desktop                :50px;
+    --fs-search-input-field-button-min-height             :50px;
+  
+  }
+}
+

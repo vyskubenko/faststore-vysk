@@ -53,7 +53,7 @@ const styleTabs: FC<styleTabsProps> = ({
   }, [fetchedData]); 
 
   return (
-    <section className={styles.styleTabs}>
+    <section className={styles.styleTabs} data-fs-content>
       <div className={`${styles.styleTabs__header} tab__header`}>
         {tabs.map((item, index) => (
           <Link 

@@ -78,14 +78,6 @@ export default function CustomHeader(props: CustomHeaderProps) {
 
   const { topbar, navButtons, region, menu: mainMenu } = props;
 
-  console.log(props);
-
-  const links = [
-    "Office",
-    "Home Appliances",
-    "Computer and Software",
-    "Technology",
-  ];
 
   return (
     <Navbar

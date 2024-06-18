@@ -2,8 +2,7 @@
 
 .styleTabs{
 
-  margin:var(--fs-spacing-8) var(--fs-grid-gap-4);
-  margin-bottom: var(--fs-spacing-8);
+  margin:var(--fs-spacing-8) auto;
 
   [data-fs-link] {
     @import '@faststore/ui/src/components/atoms/Link/styles.scss';

@@ -76,10 +76,14 @@ $basepath: '../assets';
 
     // --------------------------------------------------------
     // Grid & Layout (UI Essentials)
-    // --------------------------------------------------------
+    // -------------------------------------------------------- 
+
+    --fs-z-index-high:99;
 
     --fs-product-card-title-color: var(--fs-color-main-4);
     --fs-product-card-title-size: var(--fs-text-size-4);
+
+    --fs-grid-max-width: calc(100% - var(--fs-spacing-8));
 
     // --------------------------------------------------------
     // Interactive Controls (UI Essentials)

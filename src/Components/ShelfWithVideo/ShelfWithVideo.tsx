@@ -46,6 +46,7 @@ const ShelfWithVideo: FC<ShelfWithVideoProps> = ({
   return (
     <section
       className={`${styles.ShelfWithVideo}`}
+      data-fs-content
     >
       <div
         className={`${styles.ShelfWithVideo__col} ${styles.ShelfWithVideo__content} ShelfWithVideo__col ShelfWithVideo__content`}

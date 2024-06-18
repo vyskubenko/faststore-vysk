@@ -22,7 +22,7 @@ const InfoCardSlider = ({
   title
 }: InfoCardSliderProps) => {
   return (
-    <section className={styles.infoCardSlider}>
+    <section className={styles.infoCardSlider} data-fs-content>
 
       <h2 className={styles.infoCardSlider__title}>{title}</h2>
 

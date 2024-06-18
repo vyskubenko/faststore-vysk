@@ -20,7 +20,7 @@ const topCategories: FC<topCategoriesProps> = ({
 }): ReactElement => {
 
   return (
-    <section className={styles.topCategories}>
+    <section className={styles.topCategories} data-fs-content>
 
       <h2 className={styles.topCategories__title}>{title}</h2>
 

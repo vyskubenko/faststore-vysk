@@ -18,7 +18,7 @@ const ImageRow = ({
   title
 }: ImageRowProps) => {
   return (
-    <section className={styles.imageRow}>
+    <section className={styles.imageRow} data-fs-content>
 
       <h2 className={styles.imageRow__title}>{title}</h2>
         

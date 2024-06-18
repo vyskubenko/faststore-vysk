@@ -49,7 +49,7 @@ const infoCardShelf: FC<infoCardShelfProps> = ({
   }, [fetchedData]); 
 
   return (
-    <section className={styles.infoCardShelf}>
+    <section className={styles.infoCardShelf} data-fs-content>
 
       <div className={styles.infoCardShelf__text}>
 

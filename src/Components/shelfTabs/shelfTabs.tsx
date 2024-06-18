@@ -47,7 +47,7 @@ const shelfTabs: FC<styleTabsProps> = ({
   }, [fetchedData]); 
 
   return (
-    <section className={styles.shelfTabs}>
+    <section className={styles.shelfTabs} data-fs-content>
       <div className={`${styles.shelfTabs__header} tab__header`}>
         <h4 className={styles.shelfTabs__title}>{title}</h4>
 

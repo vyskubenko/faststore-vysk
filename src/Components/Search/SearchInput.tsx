@@ -81,7 +81,7 @@ function useOnClickOutside<T extends HTMLElement = HTMLElement>(
 }
 
 const SearchDropdown = lazy(
-  () => import('src/components/search/SearchDropdown')
+  () => import('../SearchDropdown')
 )
 
 const MAX_SUGGESTIONS = 5

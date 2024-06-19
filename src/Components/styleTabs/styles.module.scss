@@ -22,18 +22,33 @@
     margin: 0 4%;
     cursor: pointer;
     transition: all ease 0.3s;
+    position: relative;
   }
 
   [data-fs-link-variant='display'] {
     box-shadow: 0 4px 0 0 #FE951C;;
     cursor: default;
     pointer-events: none;
+
+    @include media("<notebook") {
+      box-shadow: inset 0 -4px 0 0 #FE951C;;
+    }
+  }
+
+  @include media("<notebook") {
+    justify-content: space-around;
+    overflow: auto;
+    white-space: nowrap;
   }
 }
 
 .styleTabs__container {
   display: flex;
   justify-content: space-between;
+
+  @include media("<notebook") {
+    flex-wrap: wrap;
+  }
 }
 
 
@@ -43,10 +58,23 @@
   [data-fs-product-grid] {
     grid-template-columns: repeat(2, 1fr);
 
+    @include media("<notebook") {
+      padding: var(--fs-spacing-2) 0;
+      display: flex;
+      overflow: auto;
+    }
   }
 
+  [data-fs-product-grid-item] {
+
+    @include media("<notebook") {
+      min-width: 50vw;
+    }
+  }
 
 }
+
+
 
 .styleTabs__banner {
 
@@ -83,4 +111,8 @@
 
 .styleTabs__col {
   width: calc(50% - 20px);
+
+  @include media("<notebook") {
+    width: calc(100% - 20px);
+  }
 }

@@ -130,3 +130,19 @@
 .ShelfWithVideo__iframe {
   border: none;
 }
+
+
+@include media("<notebook") {
+
+  .ShelfWithVideo__banner {
+    order: -1;
+  }
+
+  .ShelfWithVideo__col {
+    width: 100%;
+  }
+
+  .ShelfWithVideo__content {
+    padding: var(--fs-spacing-4);
+  }
+}

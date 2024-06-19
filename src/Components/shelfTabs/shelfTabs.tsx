@@ -37,6 +37,11 @@ const shelfTabs: FC<styleTabsProps> = ({
     }
   )
 
+  let isMobile = false
+  if (typeof window !== "undefined") {
+    isMobile = window.innerWidth <= 1280
+  }
+
   useEffect(() => {
     if (fetchedData) {
       const edges = fetchedData?.search.products.edges;
@@ -72,7 +77,7 @@ const shelfTabs: FC<styleTabsProps> = ({
           {loading ? (
             <Skeleton size={{ width: '100%', height: '100%' }} borderRadius="5px" />
           ) : (
-            <Carousel itemsPerPage={4} variant="scroll" controls="navigationArrows" >
+            <Carousel itemsPerPage={isMobile ? 1 : 4} variant="scroll" controls="navigationArrows" >
                 {productsJson &&
                   productsJson.map((product: any, idx: number) => (
                     <CustomProductCard

@@ -2,7 +2,7 @@
 
 $basepath: '../../assets';
 
-.gearUp{
+.gearUp {
 
   margin:var(--fs-spacing-8) 0;
   margin-bottom: var(--fs-spacing-8);
@@ -130,7 +130,7 @@ $basepath: '../../assets';
   align-items: stretch;
   align-content: stretch;
   flex-flow: column;
-  z-index: 2;
+  z-index: 1;
   border-bottom: 1px dashed rgba(255,255,255, 0.7);
 
   &::after {
@@ -245,4 +245,45 @@ $basepath: '../../assets';
       position: absolute;
     }
   }
+}
+
+
+@include media("<notebook") {
+
+  .gearUp {
+    padding:var(--fs-spacing-6) 0 20px 0;
+  }
+
+  .gearUp__container {
+    margin-top: var(--fs-spacing-3);
+    display: block;
+  }
+
+  .gearUp__category {
+    width: 100%;
+    margin: 0;
+    padding: 10px 30px;
+  }
+
+  .gearUp__parts__container {
+    width: 100%;
+    padding: 20px 20px 0 20px;
+    overflow: auto;
+
+    .gearUp__parts__link {
+      display: inline-block;
+      width: 52vw;
+      margin:0 15px 0 0;
+    }
+  }
+
+  .gearUp__parts__container__wrapper {
+    margin: 0;
+    display: block !important;
+    white-space: nowrap;
+
+  }
+
+
+
 }

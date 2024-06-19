@@ -59,3 +59,20 @@ $basepath: '../../assets';
     margin-right: 15px;
   }
 }
+
+
+@include media("<notebook") { 
+
+  .topCategories {
+    margin: var(--fs-spacing-3) auto;
+  }
+
+  .topCategories__content {
+    display: block;
+  }
+
+  .topCategories__item {
+    margin-bottom: 20px;
+  }
+
+}

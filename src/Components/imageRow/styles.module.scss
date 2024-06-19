@@ -24,3 +24,18 @@
   margin: var(--fs-spacing-4);
   justify-content: center;
 }
+
+
+@include media("<notebook") {
+
+  .imageRow__list {
+    overflow: auto;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .imageRow__item {
+    display: inline-block;
+  }
+
+}

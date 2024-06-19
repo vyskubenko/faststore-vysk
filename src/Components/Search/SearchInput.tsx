@@ -26,6 +26,9 @@ import {
 //import { formatSearchPath } from 'src/sdk/search/formatSearchPath'
 import { useSearchHistory_unstable, useSuggestions_unstable } from '@faststore/core/experimental'
 
+import bagIcon from "../../assets/searchIcon.svg"
+
+
 type FormatSearchPath = {
     term: string
     sort?: SearchState['sort']
@@ -188,6 +191,13 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
           }}
           onFocus={() => setSearchDropdownVisible(true)}
           value={searchQuery}
+          buttonIcon={
+            <img
+              src={bagIcon.src}
+              width={bagIcon.width}
+              height={bagIcon.height}
+            />
+          }
           {...otherProps}
         />
 

@@ -36,6 +36,12 @@ const HeroWithShelf: FC<HeroWithShelfProps> = ({
   // var href = "#";
   // var color = "orange";
 
+
+  let isMobile = false
+  if (typeof window !== "undefined") {
+    isMobile = window.innerWidth <= 1280
+  }
+
   const [productsJson, setProductsJson] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
@@ -74,7 +80,7 @@ const HeroWithShelf: FC<HeroWithShelfProps> = ({
               borderRadius="5px"
             />
           ) : (
-              <Carousel itemsPerPage={3} variant="scroll" controls="navigationArrows">
+              <Carousel itemsPerPage={isMobile ? 1 : 3} variant="scroll" controls="navigationArrows">
                 {productsJson &&
                   productsJson.map((product: any, idx: number) => (
                     <CustomProductCard

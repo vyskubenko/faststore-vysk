@@ -1,11 +1,10 @@
 @import '../../themes/_buttons.scss';
 
-.HeroWithShelf{
+.HeroWithShelf {
 
   margin:var(--fs-spacing-8) 0;
 
   display: flex;
-  flex-wrap: wrap;
 
   [data-fs-link] {
     @import '@faststore/ui/src/components/atoms/Link/styles.scss';
@@ -30,6 +29,7 @@
 
     .HeroWithShelf__content {
       width: 60%;
+      min-width: 680px;
     }
     .HeroWithShelf__banner {
       width: 40%;
@@ -54,6 +54,7 @@
 
     .HeroWithShelf__content {
       width: 45%;
+      min-width: 680px;
       order: 2;
     }
     .HeroWithShelf__banner {
@@ -153,3 +154,46 @@
   }
 }
 
+
+
+
+@include media("<notebook") {
+
+  .HeroWithShelf {
+    flex-wrap: wrap;
+
+    .HeroWithShelf__banner__img {
+      order: -1;
+
+      [data-fs-image] {
+        width: 100%;
+        height: 360px;
+        object-position: top;
+      }
+    }
+
+    .HeroWithShelf__content,
+    .HeroWithShelf__banner {
+      width: 100% !important;
+      min-width: initial !important;
+    }
+  }
+
+  .HeroWithShelf__title {
+    font-size: 70px;
+    line-height: 72px;
+    text-transform: uppercase;
+  }
+
+  .HeroWithShelf__content {
+    padding: var(--fs-spacing-5);
+  }
+
+  .HeroWithShelf__shelf {
+
+    [data-fs-carousel] [data-fs-carousel-track] {
+      padding-right: 30%;
+    }
+  }
+
+}

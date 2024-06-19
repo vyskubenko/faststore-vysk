@@ -33,9 +33,12 @@ const BannerCarousel = ({
             <Link href={url}>
               <picture data-fs-image>
                 <source
-                  media="(max-width: 799px)"
-                  srcSet={imageMobile ? imageMobile : imageDesktop}
-                  data-fs-image
+                  media="(max-width: 1280px)"
+                  srcSet={imageMobile}
+                />
+                <source
+                  media="(min-width: 1280px)"
+                  srcSet={imageDesktop}
                 />
                 <img src={imageDesktop} alt={name} data-fs-image />
               </picture>

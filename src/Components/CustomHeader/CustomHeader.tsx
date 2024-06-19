@@ -17,9 +17,16 @@ import {
   useScrollDirection,
 } from "@faststore/ui";
 
+
+
 import type { NavbarProps as OverrideNavigationProps } from "@faststore/core/src/components/sections/Navbar/Navbar";
 
 import { SearchInput } from "../Search";
+
+import myAccountIcon from "../../assets/accountIcon.svg"
+import bagIcon from "../../assets/bagIcon.svg"
+import storeLocatorIcon from "../../assets/storeLocator.svg"
+import closeIcon from "../../assets/closeIcon.svg"
 
 import {
   useCart_unstable as useCart,
@@ -67,7 +74,7 @@ export interface CustomHeaderProps {
 
 export default function CustomHeader(props: CustomHeaderProps) {
   const scrollDirection = useScrollDirection();
-  const { openNavbar, navbar: displayNavbar } = useUI();
+  const { openNavbar, closeNavbar, navbar: displayNavbar } = useUI();
 
   const { modal, openModal } = useUI();
 
@@ -77,7 +84,6 @@ export default function CustomHeader(props: CustomHeaderProps) {
   const { onClick: toggleCart } = useCartToggleButton();
 
   const { topbar, navButtons, region, menu: mainMenu } = props;
-
 
   return (
     <Navbar
@@ -99,7 +105,14 @@ export default function CustomHeader(props: CustomHeaderProps) {
           {region?.enabled && (
             <RegionBar
               label="Set your location"
-              icon={<Icon name="MapPin" />}
+              icon={
+                <img
+                  src={storeLocatorIcon.src}
+                  width={storeLocatorIcon.width}
+                  height={storeLocatorIcon.height}
+                  data-fs-icon
+                />
+              }
               postalCode={postalCode}
               className={styles.topbar__regionBar}
               onButtonClick={() => openModal()}
@@ -111,6 +124,20 @@ export default function CustomHeader(props: CustomHeaderProps) {
       <NavbarHeader>
         <NavbarRow>
           <div className={styles.customHeader__wrapper}>
+
+            <IconButton
+              data-fs-navbar-button-menu
+              aria-label="Open Menu"
+              className={styles.buttonMenu}
+              icon={displayNavbar ? <img
+                src={closeIcon.src}
+                width={closeIcon.width}
+                height={closeIcon.height}
+                data-fs-icon
+              /> : <Icon name="List" width={30} height={30} />}
+              onClick={displayNavbar ? closeNavbar : openNavbar}
+            />
+
             <Link
               data-fs-navbar-logo
               href={props.logo.link ? props.logo.link.url : "/"}
@@ -124,7 +151,7 @@ export default function CustomHeader(props: CustomHeaderProps) {
               />
             </Link>
 
-            <NavbarLinks>
+            <NavbarLinks className={styles.customHeader__navLinks}>
               <NavbarLinksList className={styles.customHeader__menu}>
                 {mainMenu.map((link) => (
                   <NavbarLinksListItem key={link.title}>
@@ -138,12 +165,7 @@ export default function CustomHeader(props: CustomHeaderProps) {
 
             <SearchInput  className={styles.customHeader__search} />
 
-            {/* <IconButton
-              data-fs-navbar-button-menu
-              aria-label="Open Menu"
-              icon={<Icon name="List" width={30} height={30} />}
-              onClick={openNavbar}
-            /> */}
+            
             <NavbarButtons className={styles.navbarButtons} searchExpanded={false}>
 
               {navButtons.length > 0 && (
@@ -155,7 +177,7 @@ export default function CustomHeader(props: CustomHeaderProps) {
                         title={item.title}
                         className={styles.navButtons__item}
                       >
-                        <img src={item.icon} height={32} />
+                        <img src={item.icon} height={22} />
                       </Link>
                   ))}
                 </>
@@ -165,17 +187,28 @@ export default function CustomHeader(props: CustomHeaderProps) {
                 href={person?.id ? `/account` : `/login`}
                 className={styles.navButtons__item}
               >
-                <Icon name="User" width={32} height={32} />
+                <img
+                  src={myAccountIcon.src}
+                  width={myAccountIcon.width}
+                  height={myAccountIcon.height}
+                />
               </Link>
               <IconButton
                 data-fs-cart-toggle
                 aria-label="cart"
-                icon={<Icon name="ShoppingCart" width={32} height={32} />}
+                icon={
+                  <img
+                    src={bagIcon.src}
+                    width={bagIcon.width}
+                    height={bagIcon.height}
+                  />
+                }
                 className={styles.navButtons__item}
                 onClick={() => {
                   toggleCart();
                 }}
               >
+                
                 <Badge counter variant="info">
                   {cart.totalItems}
                 </Badge>
@@ -184,6 +217,21 @@ export default function CustomHeader(props: CustomHeaderProps) {
           </div>
         </NavbarRow>
       </NavbarHeader>
+
+      {displayNavbar && (
+
+        <NavbarLinks className={styles.navLinks__mobile}>
+          <NavbarLinksList className={styles.customHeader__menu}>
+            {mainMenu.map((link) => (
+              <NavbarLinksListItem key={link.title}>
+                <Link variant="display" href={link.href}>
+                  {link.title}
+                </Link>
+              </NavbarLinksListItem>
+            ))}
+          </NavbarLinksList>
+        </NavbarLinks>
+      )}
     </Navbar>
   );
 }

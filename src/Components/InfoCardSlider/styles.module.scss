@@ -27,6 +27,10 @@
   [data-fs-carousel-controls] {
     width: calc(100% + 37px) !important;
 		margin-bottom: -24px !important;
+
+    @include media("<notebook") {
+      opacity: 1 !important;
+    }
   }
 
   [data-fs-carousel-banner] {

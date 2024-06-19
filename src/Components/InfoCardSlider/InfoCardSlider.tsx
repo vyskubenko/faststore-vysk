@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, Button, Link } from "@faststore/ui";
+import { Carousel, Link } from "@faststore/ui";
 
 import styles from "./styles.module.scss";
 
@@ -21,13 +21,20 @@ const InfoCardSlider = ({
   infiniteMode,
   title
 }: InfoCardSliderProps) => {
+
+
+  let isMobile = false
+  if (typeof window !== "undefined") {
+    isMobile = window.innerWidth <= 1280
+  }
+
   return (
     <section className={styles.infoCardSlider} data-fs-content>
 
       <h2 className={styles.infoCardSlider__title}>{title}</h2>
 
       <Carousel
-        itemsPerPage={itemsPerPage}
+        itemsPerPage={isMobile ? 2 : itemsPerPage}
         variant="scroll"
         controls="navigationArrows"
         infiniteMode={infiniteMode}

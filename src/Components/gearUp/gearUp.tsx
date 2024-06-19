@@ -27,9 +27,6 @@ export interface gearUpProps {
   tabs: tabs[];
 }
 
-
-
-
 const gearUp: FC<gearUpProps> = ({
   title,
   description,

@@ -1,0 +1,104 @@
+@import '../../themes/_buttons.scss';
+
+.shelfTabs{
+
+  margin:var(--fs-spacing-8)  auto;
+  margin-bottom: var(--fs-spacing-8);
+
+  [data-fs-link] {
+    @import '@faststore/ui/src/components/atoms/Link/styles.scss';
+    
+  }
+}
+
+.shelfTabs__header {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+
+
+  margin-bottom: var(--fs-spacing-8);
+
+  [data-fs-link] {
+    padding: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: var(--fs-text-size-2);
+    transition: all ease 0.3s;
+  }
+
+  [data-fs-link-variant='display'] {
+    box-shadow: 0 1px 0 0 var(--fs-color-main-1);
+    color: var(--fs-color-main-1);
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.shelfTabs__title {
+  font-size: var(--fs-text-size-7);
+  font-family: var(--fs-text-face-title);
+  margin-bottom: var(--fs-spacing-4);
+  text-transform: uppercase;
+  color: var(--fs-color-main-3);
+}
+
+
+.shelfTabs__links {
+  display: flex;
+
+  [data-fs-link] {
+    display: inline-block;
+  }
+}
+
+.shelfTabs__container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.shelfTabs__gallery {
+  width: 100%;
+  @import '@faststore/ui/src/components/organisms/ProductGrid/styles.scss'; 
+  @import "@faststore/ui/src/components/molecules/Carousel/styles.scss";
+
+  [data-fs-carousel] [data-fs-carousel-track] {
+    padding: 0;
+  }
+
+  [data-fs-carousel] [data-fs-carousel-controls] {
+    opacity: 1;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: auto;
+    bottom: initial;
+    opacity: 1;
+  }
+
+   [data-fs-carousel] [data-fs-carousel-control] {
+      width: 40px;
+      height: 40px;
+      display: block;
+      padding: 0;
+      
+
+      &[disabled] {
+        opacity: 0.3;
+      }
+  }
+
+   [data-fs-carousel] [data-fs-carousel-control] [data-fs-button-wrapper] {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: none !important;
+      span,svg {
+        display: block;
+      }
+  }
+
+}

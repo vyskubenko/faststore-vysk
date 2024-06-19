@@ -66,14 +66,14 @@ const gearUp: FC<gearUpProps> = ({
           </div>
 
           <div className={styles.gearUp__category__image}>
-            <div className={styles.styleTabs__banner__img} key={tabs[activeTab].title} data-fs-hero-image>
+            <div className={styles.styleTabs__banner__img} key={tabs[activeTab].tabTitle} data-fs-hero-image>
                 <picture data-fs-image>
                   <source
                     media="(max-width: 799px)"
                     srcSet={tabs[activeTab].tabImage}
                     data-fs-image
                   />
-                  <img src={tabs[activeTab].tabImage} alt={tabs[activeTab].title} data-fs-image />
+                  <img src={tabs[activeTab].tabImage} alt={tabs[activeTab].tabTitle} data-fs-image />
                 </picture>
             </div>
 

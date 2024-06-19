@@ -13,4 +13,4 @@ import topCategories from './topCategories/topCategories'
 
 
 
-export default { BannerSlider, BannerCarousel, CustomHeader, InfoCardSlider, styleTabs, imageRow, HeroWithShelf, shelfTabs, ShelfWithVideo, gearUp, topCategories, infoCardShelf, topCategories}
+export default { BannerSlider, BannerCarousel, CustomHeader, InfoCardSlider, styleTabs, imageRow, HeroWithShelf, shelfTabs, ShelfWithVideo, gearUp, infoCardShelf, topCategories}

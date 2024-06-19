@@ -17,8 +17,6 @@ import {
   useScrollDirection,
 } from "@faststore/ui";
 
-
-
 import type { NavbarProps as OverrideNavigationProps } from "@faststore/core/src/components/sections/Navbar/Navbar";
 
 import { SearchInput } from "../Search";

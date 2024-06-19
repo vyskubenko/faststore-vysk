@@ -67,7 +67,9 @@ export interface CustomHeaderProps {
     };
   };
   topbar: topBarInfo[];
-  region: boolean;
+  region: {
+    enabled:boolean;
+  };
   navButtons: navButtons[];
   menu: menuLinks[];
 }

@@ -3,19 +3,72 @@
 // Custom Theme
 // ----------------------------------------------------------
 
+
+$basepath: '../assets';
+
+@font-face {
+  font-family: 'Neue Plak';
+  font-style: normal;
+  font-weight: 700;
+  src: url('#{$basepath}/fonts/NeuePlakCondensedBold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$basepath}/fonts/SuisseIntl-Regular.ttf') format('ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: normal;
+  font-weight: bold;
+  src: url('#{$basepath}/fonts/SuisseIntl-Bold.ttf') format('ttf');
+  font-display: swap;
+}
+
 @layer theme {
   .theme {
     // --------------------------------------------------------
     // Colors (Branding Core)
     // --------------------------------------------------------
     --fs-color-main-0: #ecf0ff;
-    --fs-color-main-1: #d8e2ff;
-    --fs-color-main-2: #00419e;
-    --fs-color-main-3: #002c71;
-    --fs-color-main-4: #001947;
+    --fs-color-main-1: #1C4DA1;
+    --fs-color-main-2: #476C73;
+    --fs-color-main-3: #112B59;
+    --fs-color-main-4: #292929;
+    --fs-color-main-5: #393939;
+    --fs-color-main-6: #1D1D1D;
+
+    --fs-link-text-color: var(--fs-color-main-6);
+
+    
     // --------------------------------------------------------
     // Typography (Branding Core)
     // --------------------------------------------------------
+    --fs-text-face-body:  'Suisse Intl', Arial, sans-serif;
+    --fs-text-face-title: "Neue Plak", serif;
+
+    // NUMERIC SCALE
+
+    --fs-text-scale-desktop              : 1.27;
+    --fs-text-size-base                  : 16px; // 1rem
+
+    --fs-text-size-0                     : 12px; // Smallest
+    --fs-text-size-1                     : 14px; // Smaller                               
+    --fs-text-size-2                     : var(--fs-text-size-base);                      
+    --fs-text-size-3                     : calc(var(--fs-text-size-2) * var(--fs-scale)); 
+    --fs-text-size-4                     : calc(var(--fs-text-size-3) * var(--fs-scale)); 
+    --fs-text-size-5                     : calc(var(--fs-text-size-4) * var(--fs-scale)); 
+    --fs-text-size-6                     : calc(var(--fs-text-size-5) * var(--fs-scale)); 
+    --fs-text-size-7                     : calc(var(--fs-text-size-6) * var(--fs-scale)); 
+    --fs-text-size-8                     : calc(var(--fs-text-size-7) * var(--fs-scale)); 
+
+
+    --fs-text-size-headtitle             : 102px;
 
     // --------------------------------------------------------
     // Spacing (UI Essentials)
@@ -23,7 +76,15 @@
 
     // --------------------------------------------------------
     // Grid & Layout (UI Essentials)
-    // --------------------------------------------------------
+    // -------------------------------------------------------- 
+
+    --fs-z-index-high:99;
+    --fs-z-index-highest:999;
+
+    --fs-product-card-title-color: var(--fs-color-main-4);
+    --fs-product-card-title-size: var(--fs-text-size-4);
+
+    --fs-grid-max-width: calc(100% - var(--fs-spacing-8));
 
     // --------------------------------------------------------
     // Interactive Controls (UI Essentials)
@@ -38,5 +99,6 @@
     // FS UI Components
     // --------------------------------------------------------
     // Add here the customizations for FastStore UI components.
+
   }
 }

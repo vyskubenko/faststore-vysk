@@ -1,0 +1,41 @@
+.imageRow {
+  margin: var(--fs-spacing-12) auto;
+
+}
+
+.imageRow__title {
+  font-size: var(--fs-text-size-8);
+  color: var(--fs-color-main-3);
+  text-align: center;
+  font-family: var(--fs-text-face-title);
+  margin-bottom: var(--fs-spacing-5);
+  text-transform: uppercase;
+}
+
+.imageRow__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 calc(var(--fs-spacing-4) * -1);
+}
+
+.imageRow__item {
+  margin: var(--fs-spacing-4);
+  justify-content: center;
+}
+
+
+@include media("<notebook") {
+
+  .imageRow__list {
+    overflow: auto;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .imageRow__item {
+    display: inline-block;
+  }
+
+}

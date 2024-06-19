@@ -1,0 +1,38 @@
+
+$basepath: '../assets';
+
+
+
+%primary-button {
+    background-color: var(--fs-color-main-1);
+    text-align: center;
+    color:#FFF;
+    display: inline-block !important;
+    border-radius: 50px;
+    overflow: hidden;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all ease 0.3s;
+    font-weight: 500;
+
+    div {
+        background: none !important;
+    }
+
+    &:hover {
+        background-color: var(--fs-color-main-3);
+    }
+
+		[data-fs-button-wrapper],
+		&[data-fs-link] {
+			&::after {
+				content:"";
+				display: inline-block;
+				background: url('#{$basepath}/iconPrimaryButton.svg') no-repeat center;
+				width: 21px;
+				height: 8px;
+				margin:0 10px;
+			}
+		}
+		
+}

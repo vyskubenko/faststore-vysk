@@ -1,0 +1,118 @@
+@import '../../themes/_buttons.scss';
+
+.styleTabs{
+
+  margin:var(--fs-spacing-8) auto;
+
+  [data-fs-link] {
+    @import '@faststore/ui/src/components/atoms/Link/styles.scss';
+    
+  }
+}
+
+.styleTabs__header {
+  display: flex; 
+  justify-content: center;
+
+  border-bottom: 1px solid #D8D8D8;
+  margin-bottom: var(--fs-spacing-7);
+
+  [data-fs-link] {
+    padding: 20px;
+    margin: 0 4%;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    position: relative;
+  }
+
+  [data-fs-link-variant='display'] {
+    box-shadow: 0 4px 0 0 #FE951C;;
+    cursor: default;
+    pointer-events: none;
+
+    @include media("<notebook") {
+      box-shadow: inset 0 -4px 0 0 #FE951C;;
+    }
+  }
+
+  @include media("<notebook") {
+    justify-content: space-around;
+    overflow: auto;
+    white-space: nowrap;
+  }
+}
+
+.styleTabs__container {
+  display: flex;
+  justify-content: space-between;
+
+  @include media("<notebook") {
+    flex-wrap: wrap;
+  }
+}
+
+
+.styleTabs__gallery {
+  @import '@faststore/ui/src/components/organisms/ProductGrid/styles.scss';
+
+  [data-fs-product-grid] {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include media("<notebook") {
+      padding: var(--fs-spacing-2) 0;
+      display: flex;
+      overflow: auto;
+    }
+  }
+
+  [data-fs-product-grid-item] {
+
+    @include media("<notebook") {
+      min-width: 50vw;
+    }
+  }
+
+}
+
+
+
+.styleTabs__banner {
+
+  [data-fs-hero-image] {
+    height: 100%;
+    position: relative;
+  }
+
+}
+
+.carouselBanners__button {
+  @extend %primary-button;
+  
+}
+
+.carouselBanners__title {
+  text-transform: uppercase;
+  clear: both;
+  font-size: var(--fs-text-size-8);
+  margin-bottom: 10px;
+  color: var(--fs-color-main-3);
+  font-family: var(--fs-text-face-title);
+  font-weight: bold;
+}
+
+.carouselBanners__content {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  width: 100%;
+  padding: 0 30px;
+  @import "@faststore/ui/src/components/atoms/Button/styles.scss";
+}
+
+.styleTabs__col {
+  width: calc(50% - 20px);
+
+  @include media("<notebook") {
+    width: calc(100% - 20px);
+  }
+}

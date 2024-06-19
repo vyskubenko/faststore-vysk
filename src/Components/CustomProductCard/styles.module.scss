@@ -1,0 +1,41 @@
+
+.ProductGridItem {
+
+  @import '@faststore/ui/src/components/atoms/Price/styles.scss';
+
+  @import '@faststore/ui/src/components/atoms/Button/styles.scss';
+
+
+
+  @import '@faststore/ui/src/components/molecules/ProductCard/styles.scss';
+
+  [data-fs-product-card-content] {
+    border-top: 1px solid #B8B8B8;
+    padding-top: 20px;
+  }
+
+
+
+  [data-fs-product-price] {
+
+  }
+}
+
+.ProductGridItem__content {
+  
+  --fs-product-card-price-color: #C40000;
+
+  [data-fs-product-card-title] {
+    font-size: 20px !important;
+    line-height: 24px !important;
+    color: var(--fs-color-main-4) !important;
+  }
+
+  [data-fs-price-variant="listing"] {
+    color: var(--fs-color-main-4);
+    margin-right: 10px;
+    font-size: var(--fs-text-size-2);
+  }
+
+
+}

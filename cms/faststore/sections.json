@@ -1,5 +1,131 @@
 [
   {
+    "name": "CustomHeader",
+    "schema": {
+      "title": "Custom Header",
+      "description": "CustomHeader Wrapper",
+      "type": "object",
+			"required": [
+				"logoLink"
+			],
+      "properties": {
+        "logoLink": {
+          "title": "Link Path",
+          "type": "object",
+          "properties": {
+            "text": {
+              "title": "Text",
+              "type": "string"
+            },
+            "url": {
+              "title": "URL",
+              "type": "string"
+            }
+          }
+        },
+				"logo": {
+          "title": "Logo",
+          "type": "object",
+          "required": ["src"],
+          "properties": {
+            "src": {
+              "title": "Image",
+              "type": "string",
+              "widget": {
+                "ui:widget": "media-gallery"
+              }
+            },
+            "alt": {
+              "title": "Alternative Label",
+              "type": "string"
+            },
+            "link": {
+              "title": "Logo Link",
+              "type": "object",
+              "required": ["url", "title"],
+              "properties": {
+                "url": {
+                  "title": "Link URL",
+                  "type": "string"
+                },
+                "title": {
+                  "title": "Link Title",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "topbar": {
+          "title": "Top bar Item List",
+          "type": "array",
+          "items": {
+            "title": "item top bar",
+            "type": "object",
+            "properties": {
+              "infoText": {
+                "title": "Text",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "region": {
+          "title": "Regionalizaton",
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Use Regionalization?",
+              "default": true
+            }
+          }
+        },
+        "navButtons": {
+          "title": "navButtons Item List",
+          "type": "array",
+          "items": {
+            "title": "navButtons Item",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Text",
+                "type": "string"
+              },
+              "icon": {
+                "title": "icon",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "href": {
+                "title": "href",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "menu": {
+          "title": "Main Menu Item List",
+          "type": "array",
+          "items": {
+            "title": "main menu first level",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Text",
+                "type": "string"
+              },
+              "href": {
+                "title": "href",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
     "name": "BannerSlider",
     "schema": {
       "title": "Banner Slider 2",
@@ -34,5 +160,468 @@
         }
       }
     }
+  },
+	{
+    "name": "BannerCarousel",
+    "schema": {
+      "title": "Carousel of banners",
+      "description": "Is a list of images in a carousel mode",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "itemsPerPage": {
+          "title": "Items per page",
+          "type": "number",
+          "default": 1
+        },
+        "infiniteMode": {
+          "title": "Infinite mode",
+          "type": "boolean",
+          "default": true
+        },
+        "list": {
+          "title": "Item List",
+          "type": "array",
+          "items": {
+            "title": "Banner",
+            "type": "object",
+            "properties": {
+              "imageDesktop": {
+                "title": "Image Desktop",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "imageMobile": {
+                "title": "Image Mobile",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+							"linkName": {
+                "title": "Link Name",
+                "type": "string"
+              },
+              "url": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
+    "name": "InfoCardSlider",
+    "schema": {
+      "title": "Info Card Slider",
+      "description": "Is a list of infocardds in a carousel mode",
+      "type": "object",
+      "required": [],
+      "properties": {
+				"title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+        "itemsPerPage": {
+          "title": "Items per page",
+          "type": "number",
+          "default": 6
+        },
+        "infiniteMode": {
+          "title": "Infinite mode",
+          "type": "boolean",
+          "default": true
+        },
+        "list": {
+          "title": "Item List",
+          "type": "array",
+          "items": {
+            "title": "Banner",
+            "type": "object",
+            "properties": {
+              "imageDesktop": {
+                "title": "Image Desktop",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "url": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
+    "name": "styleTabs",
+    "schema": {
+      "title": "Shelf Tabs with Banner",
+      "description": "Style tabs contains a banner and 4 products",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "tabs": {
+          "title": "Tabs",
+          "type": "array",
+          "items": {
+            "title": "Tab",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Title",
+                "type": "string"
+              },
+              "productClusterIds": {
+                "title": "productClusterIds",
+                "type": "number"
+              },
+              "banner": {
+                "title": "banner",
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Banner Title",
+                    "type": "string"
+                  },
+                  "image": {
+                    "title": "Image",
+                    "type": "string",
+                    "widget": { "ui:widget": "image-uploader" }
+                  },
+                  "linkText": {
+                    "title": "linkText",
+                    "type": "string"
+                  },
+                  "href": {
+                    "title": "href",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
+    "name": "imageRow",
+    "schema": {
+      "title": "Row for Images",
+      "description": "Usually used to display brands and its links",
+      "type": "object",
+      "required": [],
+      "properties": {
+				"title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+        "list": {
+          "title": "Item List",
+          "type": "array",
+          "items": {
+            "title": "Image",
+            "type": "object",
+            "properties": {
+              "image": {
+                "title": "Image",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "url": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
+    "name": "HeroWithShelf",
+    "schema": {
+      "title": "Hero Banner with Shelf",
+      "description": "Hero Banner with Shelf",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description Text",
+          "type": "string"
+        },
+				"productClusterIds": {
+          "title": "productClusterIds",
+          "type": "number"
+        },
+				"linkText": {
+          "title": "Link Text",
+          "type": "string"
+        },
+				"href": {
+          "title": "href",
+          "type": "string"
+        },
+				"image": {
+					"title": "Image",
+					"type": "string",
+					"widget": { "ui:widget": "image-uploader" }
+				},
+        "color": {
+          "title": "Background Color",
+          "type": "string",
+					"enumNames": [
+						"orange",
+						"Light Yellow"
+					],
+					"enum": [
+						"orange",
+						"light-yellow"
+					],
+					"default": "orange"
+        }
+      }
+    }
+  },
+	{
+    "name": "shelfTabs",
+    "schema": {
+      "title": "Tabs with Shelf Carousel",
+      "description": "Tabs contains a Shelf Carousel",
+      "type": "object",
+      "required": [],
+      "properties": {
+				"title": {
+					"title": "Title",
+					"type": "string"
+				},
+        "tabs": {
+          "title": "Tabs",
+          "type": "array",
+          "items": {
+            "title": "Tab",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Title",
+                "type": "string"
+              },
+              "productClusterIds": {
+                "title": "productClusterIds",
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+	{
+    "name": "ShelfWithVideo",
+    "schema": {
+      "title": "Shelf with Video",
+      "description": "Section with shelf and video",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+				"subtitle": {
+          "title": "Subtitle",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description Text",
+          "type": "string"
+        },
+				"productClusterIds": {
+          "title": "productClusterIds",
+          "type": "number"
+        },
+				"video": {
+					"title": "video href",
+					"type": "string"
+				}
+      }
+    }
+  },
+  {
+    "name": "gearUp",
+    "schema": {
+      "title": "Gear Up Box",
+      "description": "Box containain tabs with categories link",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+				"description": {
+          "title": "description",
+          "type": "string"
+        },
+        "tabs": {
+          "title": "Tabs",
+          "type": "array",
+          "items": {
+            "title": "Tab",
+            "type": "object",
+            "properties": {
+              "tabImage": {
+                "title": "Image",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "tabTitle": {
+                "title": "Name",
+                "type": "string"
+              },
+              "parts": {
+                "title": "Parts of each tab",
+                "description": "Head, upper body, etc",
+                "type": "array",
+                "items": {
+                  "title": "Tab",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "title": "title",
+                      "type": "string"
+                    },
+                    "height": {
+                      "title": "Height of the box",
+                      "type": "number"
+                    },
+                    "links": {
+                      "title": "Links for each cat of the tab",
+                      "type": "array",
+                      "items": {
+                        "title": "Link",
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "title": "title",
+                            "type": "string"
+                          },
+                          "image": {
+                            "title": "Image",
+                            "type": "string",
+                            "widget": { "ui:widget": "image-uploader" }
+                          },
+                          "href": {
+                            "title": "href",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "infoCardShelf",
+    "schema": {
+      "title": "Info Card with 3 products Shelf",
+      "description": "Info Card with 3 products Shelf",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+				"description": {
+          "title": "description",
+          "type": "string"
+        },
+				"shelfTitle": {
+          "title": "Shelf Ttitle",
+          "type": "string"
+        },
+				"productClusterIds": {
+          "title": "productClusterIds",
+          "type": "number"
+        },
+        "linkText": {
+          "title": "linkText",
+          "type": "string"
+        },
+				"href": {
+					"title": "href",
+					"type": "string"
+				},
+        "banner": {
+          "title": "Image",
+          "type": "string",
+          "widget": { "ui:widget": "image-uploader" }
+        }
+      }
+    }
+  },
+  {
+    "name": "topCategories",
+    "schema": {
+      "title": "Top Categories/Brands Card",
+      "type": "object",
+      "required": [],
+      "properties": {
+				"title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+        "list": {
+          "title": "Item List",
+          "type": "array",
+          "items": {
+            "title": "Item",
+            "type": "object",
+            "properties": {
+              "image": {
+                "title": "Image",
+                "type": "string",
+                "widget": { "ui:widget": "image-uploader" }
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "url": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 ]
+
+

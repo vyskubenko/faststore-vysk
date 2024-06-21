@@ -86,7 +86,7 @@ const HeroWithShelf: FC<HeroWithShelfProps> = ({
                     <CustomProductCard
                       product={product}
                       idx={idx}
-                      key={product}
+                      key={idx}
                     ></CustomProductCard>
                   ))}
               </Carousel>

@@ -58,14 +58,28 @@
         },
         "topbar": {
           "title": "Top bar Item List",
-          "type": "array",
-          "items": {
-            "title": "item top bar",
-            "type": "object",
-            "properties": {
-              "infoText": {
-                "title": "Text",
-                "type": "string"
+          "type": "object",
+          "properties": {
+            "left": {
+              "title": "Left Text",
+              "type": "string"
+            },
+            "right": {
+              "title": "Right Text",
+              "type": "string"
+            },
+            "center": {
+              "title": "Top bar Center Item List",
+              "type": "array",
+              "items": {
+                "title": "item center top bar",
+                "type": "object",
+                "properties": {
+                  "infoText": {
+                    "title": "Text",
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -118,6 +132,57 @@
               "href": {
                 "title": "href",
                 "type": "string"
+              },
+              "submenu": {
+                "title": "2nd Level Main Menu Item List",
+                "type": "array",
+                "items": {
+                  "title": "Items in second level menu",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "title": "Text",
+                      "type": "string"
+                    },
+                    "href": {
+                      "title": "href",
+                      "type": "string"
+                    },
+                    "headTitle": {
+                      "title": "Is head title?",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "submenu": {
+                      "title": "3nd Level Main Menu Item List",
+                      "type": "array",
+                      "items": {
+                        "title": "Items in third level menu",
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "title": "Text",
+                            "type": "string"
+                          },
+                          "href": {
+                            "title": "href",
+                            "type": "string"
+                          },
+                          "image": {
+                            "title": "image",
+                            "type": "string",
+                            "widget": { "ui:widget": "image-uploader" }
+                          },
+                          "headTitle": {
+                            "title": "Is head title?",
+                            "type": "boolean",
+                            "default": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }

@@ -79,6 +79,7 @@ const gearUp: FC<gearUpProps> = ({
                 <div
                   className={styles.gearUp__category__parts__links}
                   style={ {height: part.height }}
+                  key={index}
                 >
                   <Link 
                     key={index}

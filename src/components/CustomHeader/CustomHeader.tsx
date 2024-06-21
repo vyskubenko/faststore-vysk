@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "./CustomHeader.module.scss";
 import {
   RegionBar,
-  Badge,
   NavbarLinks,
   NavbarLinksList,
   NavbarLinksListItem,
@@ -17,13 +16,13 @@ import {
   useScrollDirection,
 } from "@faststore/ui";
 
-import type { NavbarProps as OverrideNavigationProps } from "@faststore/core/src/components/sections/Navbar/Navbar";
+// import type { NavbarProps as OverrideNavigationProps } from "@faststore/core/src/components/sections/Navbar/Navbar";
 
-import { SearchInput } from "../Search";
+import { SearchInput } from '../Search';
 
-import myAccountIcon from "../../assets/accountIcon.svg"
-import bagIcon from "../../assets/bagIcon.svg"
-import storeLocatorIcon from "../../assets/storeLocator.svg"
+import Menu from './Menu'
+
+import {PhoneIcon,BagIcon,StoreLocatorIconBlue, MyAccountIcon} from "../../assets/Icons"
 import closeIcon from "../../assets/closeIcon.svg"
 
 import {
@@ -34,45 +33,10 @@ import {
   // @ts-ignore next-line
 } from "@faststore/core/experimental";
 
-interface menuLinks {
-  title: string;
-  href: string;
-}
 
-interface topBarInfo {
-  infoText: string;
-}
+import { CustomHeaderProps } from './CustomHeaderTypes'
 
-interface navButtons {
-  title: string;
-  icon: string;
-  href: string;
-}
-
-export interface CustomHeaderProps {
-  navbar: OverrideNavigationProps["searchInput"];
-  cart: OverrideNavigationProps["cartIcon"];
-  logoLink: {
-    text: string;
-    url: string;
-  };
-  logo: {
-    alt: string;
-    src: string;
-    link: {
-      url: string;
-      title: string;
-    };
-  };
-  topbar: topBarInfo[];
-  region: {
-    enabled:boolean;
-  };
-  navButtons: navButtons[];
-  menu: menuLinks[];
-}
-
-export default function CustomHeader(props: CustomHeaderProps) {
+export default function CustomHeader(props: CustomHeaderProps)  {
   const scrollDirection = useScrollDirection();
   const { openNavbar, closeNavbar, navbar: displayNavbar } = useUI();
 
@@ -92,32 +56,20 @@ export default function CustomHeader(props: CustomHeaderProps) {
     >
       <div className={styles.topBar}>
         <div data-fs-content="topbar" className={styles.topBar__wrapper}>
-          {topbar.length > 0 && (
+
+          {topbar?.left ?? (<span className="left">{topbar?.left}</span>) }
+          {topbar?.center?.length > 0 && (
             <ul className={styles.topBar__list}>
-              {topbar.map((item, index) => (
+              {topbar.center.map((item, index) => (
                 <li key={index} className={styles.topBar__list__item}>
                   {item.infoText}
                 </li>
               ))}
             </ul>
           )}
+          {topbar?.right ?? (<span className="right">{topbar?.right}</span>) }
 
-          {region?.enabled && (
-            <RegionBar
-              label="Set your location"
-              icon={
-                <img
-                  src={storeLocatorIcon.src}
-                  width={storeLocatorIcon.width}
-                  height={storeLocatorIcon.height}
-                  data-fs-icon
-                />
-              }
-              postalCode={postalCode}
-              className={styles.topbar__regionBar}
-              onButtonClick={() => openModal()}
-            />
-          )}
+          
         </div>
       </div>
 
@@ -151,20 +103,7 @@ export default function CustomHeader(props: CustomHeaderProps) {
               />
             </Link>
 
-            <NavbarLinks className={styles.customHeader__navLinks}>
-              <NavbarLinksList className={styles.customHeader__menu}>
-                {mainMenu.map((link) => (
-                  <NavbarLinksListItem key={link.title}>
-                    <Link variant="display" href={link.href}>
-                      {link.title}
-                    </Link>
-                  </NavbarLinksListItem>
-                ))}
-              </NavbarLinksList>
-            </NavbarLinks>
-
             <SearchInput  className={styles.customHeader__search} />
-
             
             <NavbarButtons className={styles.navbarButtons} searchExpanded={false}>
 
@@ -183,39 +122,66 @@ export default function CustomHeader(props: CustomHeaderProps) {
                 </>
               )}
 
+              {region?.enabled && (
+                <RegionBar
+                  label="Set your location"
+                  icon={
+                    <StoreLocatorIconBlue data-fs-icon />
+                  }
+                  postalCode={postalCode}
+                  className={styles.customHeader__regionBar}
+                  onButtonClick={() => openModal()}
+                />
+              )}
+              
+              <Link
+                href="/contact-us"
+                className={styles.navButtons__item}
+              >
+                <PhoneIcon />
+                <span className={styles.navButtons__item__text}>
+                  Help
+                </span>
+              </Link>
+
               <Link
                 href={person?.id ? `/account` : `/login`}
                 className={styles.navButtons__item}
               >
-                <img
-                  src={myAccountIcon.src}
-                  width={myAccountIcon.width}
-                  height={myAccountIcon.height}
-                />
+                <MyAccountIcon />
+                <span className={styles.navButtons__item__text}>
+                  Account
+                </span>
               </Link>
               <IconButton
                 data-fs-cart-toggle
                 aria-label="cart"
                 icon={
-                  <img
-                    src={bagIcon.src}
-                    width={bagIcon.width}
-                    height={bagIcon.height}
-                  />
+                  <BagIcon/>
                 }
-                className={styles.navButtons__item}
+                className={`${styles.navButtons__item} ${styles.navButtons__itemCart}`}
                 onClick={() => {
                   toggleCart();
                 }}
               >
-                
-                <Badge counter variant="info">
-                  {cart.totalItems}
-                </Badge>
+                {/* <Badge counter variant="info">
+                  
+                </Badge> */}
+                  <span className={styles.navButtons__item__text}>
+                  Bag ({cart.totalItems})
+                </span>
               </IconButton>
             </NavbarButtons>
           </div>
         </NavbarRow>
+
+        <div className={styles.customHeader__menu__wrapper}>
+          <NavbarRow>
+            
+            <Menu menu={mainMenu} />
+
+          </NavbarRow>
+        </div>
       </NavbarHeader>
 
       {displayNavbar && (

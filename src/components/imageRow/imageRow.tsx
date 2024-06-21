@@ -23,8 +23,8 @@ const ImageRow = ({
       <h2 className={styles.imageRow__title}>{title}</h2>
         
         <ul className={styles.imageRow__list}>
-          {list.map(({ image, name, url }) => (
-            <li className={styles.imageRow__item} key={image}>
+          {list.map(({ image, name, url }, i) => (
+            <li className={styles.imageRow__item} key={i}>
               <Link href={url}>
                 <picture data-fs-image>
                   <source

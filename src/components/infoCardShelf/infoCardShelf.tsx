@@ -82,7 +82,7 @@ const infoCardShelf: FC<infoCardShelfProps> = ({
                 <CustomProductCard
                       product={product}
                       idx={idx}
-                      key={product}
+                      key={idx}
                 ></CustomProductCard>
               ))}
             </ProductGrid>

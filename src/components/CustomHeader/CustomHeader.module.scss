@@ -1,6 +1,9 @@
 .customHeader {
   background-color: #FFF;
   
+  @import '@faststore/ui/src/components/molecules/Dropdown/styles.scss'
+
+
 }
 
 .customHeader__wrapper {
@@ -16,8 +19,9 @@
 }
 
 .customHeader__logo {
-  width: 55px !important;
-  min-width: 55px !important;
+  width: 60px !important;
+  min-width: 60px !important;
+  padding: 13px 0 !important;
 }
 
 .section {
@@ -44,14 +48,32 @@
   @import "@faststore/ui/src/components/molecules/SearchTop/styles.scss";
   @import "@faststore/ui/src/components/organisms/SearchInput/styles.scss";
   @import "@faststore/ui/src/components/organisms/Navbar/styles.scss";
-  
-
 
 }
 
 
+
+.customHeader__menu__wrapper {
+  border-top:1px solid #E4E4E4;
+}
+
+.customHeader__navLinks,
 .customHeader__menu {
+
+  position: initial !important;
+
+}
+
+.customHeader__menu {
+
+
+  --fs-navbar-links-list-padding-left-notebook:0;
+  --fs-navbar-links-list-margin-left-notebook:0;
+
+  justify-content: space-evenly;
+
   [data-fs-navbar-links-list-item] {
+    padding: 15px;
     --fs-navbar-links-link-padding-notebook:0 10px;
   }
 
@@ -97,7 +119,8 @@
 
 .navButtons__item {
   margin: 0 var(--fs-spacing-3);
-
+  display: flex;
+  align-items: center;
   
   [data-fs-icon] {
     color:var(--fs-color-main-6) !important;
@@ -106,25 +129,38 @@
   [data-fs-badge][data-fs-badge-counter=true] [data-fs-badge-wrapper] {
     background-color: var(--fs-color-main-6);
   }
+
+  &__text {
+    margin-left: 10px;
+    color:#3F3F3F;
+    font-size: var(--fs-text-size-1);
+    font-weight: normal;
+    white-space: nowrap;
+  }
+
+  &Cart {
+    width: auto !important;
+    margin-right: -10px;
+    
+    [data-fs-button-wrapper] {
+      padding: 0 10px !important;
+    }
+  }
 }
 
-.topbar__regionBar {
-
-  [data-fs-button]:not(:focus) * {
-    color:#FFF;
-  }
-  [data-fs-button]:hover *,
-  [data-fs-button]:active *  {
-    color: var(--fs-color-main-1);
-  }
+.customHeader__regionBar {
 
   [data-fs-button-wrapper] > span {
     display: flex;
     align-items: center;
+    color:#3F3F3F;
+    font-weight: normal;
   }
 
   [data-fs-icon] {
     margin-right: 10px;
+
+
   }
 }
 
@@ -204,4 +240,35 @@
   .topbar__regionBar {
     display: none;
   }
+}
+
+
+.subMenu {
+  
+  background-color: red;
+
+  &[data-level="1"] {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #FFF;
+    overflow: visible;
+  }
+
+  &[data-level="2"] {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #ddd;
+    overflow: visible;
+    margin: 0;
+  }
+
+  
+}
+
+
+.navLink {
+  display: flex;
+  align-items: center;
 }

@@ -95,7 +95,7 @@ const styleTabs: FC<styleTabsProps> = ({
                 <CustomProductCard
                       product={product}
                       idx={idx}
-                      key={product}
+                      key={idx}
                 ></CustomProductCard>
               ))}
             </ProductGrid>

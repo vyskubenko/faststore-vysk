@@ -21,6 +21,7 @@ const BannerCarousel = ({
   itemsPerPage,
   infiniteMode,
 }: BannerCarouselProps) => {
+
   return (
     <section className={styles.carouselBanners}>
       <Carousel
@@ -31,7 +32,7 @@ const BannerCarousel = ({
         {list.map(({ imageDesktop, imageMobile, name, linkName, url }) => (
           <div className={styles.carouselBanners__item} key={url} data-fs-carousel-banner>
             <Link href={url}>
-              <picture data-fs-image>
+              <picture>
                 <source
                   media="(max-width: 1280px)"
                   srcSet={imageMobile}

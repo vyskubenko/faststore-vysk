@@ -3,28 +3,29 @@ import { NavbarLinksListItem, Link, Button } from "@faststore/ui";
 
 import styles from "./CustomHeader.module.scss";
 
-import { CloseIcon, MenuArrow } from "../../assets/Icons";
+import { CloseIcon, MenuArrow, ArrowRightPath } from "../../assets/Icons";
 
 export type MenuProps = {
   menu: any;
 };
 
-const MenuItem = ({ item, level}: any) => {
-  const [isOpen, setIsOpen] = useState(false);
+const MenuItem = ({ item, level, isOpen, onClick }: any) => {
+  
+  const [subMenuOpenIndex, setSubMenuOpenIndex] = useState<number | null>(null);
 
-  const toggleSubMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleClick = () => {
-    toggleSubMenu();
+  const handleSubItemClick = (index: number) => {
+    setSubMenuOpenIndex(index === subMenuOpenIndex ? null : index);
   };
 
   const hasChildren = item.submenu && item.submenu.length > 0;
 
+  console.log(item)
+
   return (
     <NavbarLinksListItem
-      className={`menu-item ${hasChildren ? "has-children" : ""}`}
+      className={`${styles.subMenu__item} ${item.headTitle ? 'subMenu__item__headTitle' : ''} ${hasChildren ? "has-children" : ""}`}
+      data-level={level}
+      data-headtitle={item.headTitle}
     >
       <Link
         data-fs-button-dropdown-link-highlight={item.headTitle}
@@ -32,13 +33,17 @@ const MenuItem = ({ item, level}: any) => {
         href={item.href}
         data-testid="data-fs-button-dropdown-link"
         className={styles.navLink}
-        onClick={handleClick}
+        onClick={onClick}
         variant={hasChildren ? "display" : "default"}
         as={hasChildren ? "span" : "a"}
       >
         {item.title}
 
-        {item?.image ? <img src={item.image} /> : <MenuArrow />}
+        {item?.image ? <img src={item.image} /> : (
+          
+          item.headTitle ? <ArrowRightPath /> : <MenuArrow />
+        
+        )}
       </Link>
 
       {hasChildren && isOpen && (
@@ -48,12 +53,19 @@ const MenuItem = ({ item, level}: any) => {
           className={styles.subMenu}
           data-level={level}
         >
-          <Button variant="tertiary" icon={<CloseIcon />} onClick={handleClick} size="small" />
+
+          <li className={styles.subMenu__item__head}>
+            <h4>{item.title}</h4>
+            <Button className={styles.subMenu__item__head__close} variant="tertiary" icon={<CloseIcon />} onClick={onClick} size="small" />
+          </li>
 
           {item.submenu.map((subItem: any, index: any) => (
-            <li key={index}>
-              <MenuItem item={subItem} level={level + 1} />
-            </li>
+            <MenuItem
+              item={subItem}
+              level={level + 1}
+              isOpen={subMenuOpenIndex === index}
+              onClick={() => handleSubItemClick(index)}
+            />
           ))}
         </ul>
       )}

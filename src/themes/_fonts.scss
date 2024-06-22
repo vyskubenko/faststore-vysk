@@ -1,0 +1,145 @@
+$basepath: "../assets";
+
+@font-face {
+  font-family: "Neue Plak";
+  font-style: normal;
+  font-weight: 700;
+  src: url("#{$basepath}/fonts/NeuePlakCondensedBold.woff") format("woff");
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: "SuisseBPIntl-AntiqueItalic";
+//   font-family: "Suisse Intl";
+//   font-style: normal;
+//   font-weight: 700;
+//   font-display: swap;
+//   src:
+//         /* local("SuisseBPIntl-AntiqueItalic") */
+//         /* local("Suisse BP Int'l Antique Italic") */ url("#{$basepath}/fonts/Suisse BP Int'l Antique Italic.woff");
+// }
+// @font-face {
+//   font-family: "SuisseBPIntl-Antique";
+//   src:
+//         /* local("SuisseBPIntl-Antique") */
+//         /* local("Suisse BP Int'l Antique") */ url("#{$basepath}/fonts/Suisse BP Int'l Antique.woff");
+// }
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-BlackItalic") */
+        /* local("Suisse BP Int'l Black Italic") */ url("#{$basepath}/fonts/Suisse BP Int'l Black Italic.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-Black") */
+        /* local("Suisse BP Int'l Black") */ url("#{$basepath}/fonts/Suisse BP Int'l Black.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-BoldItalic") */
+        /* local("Suisse BP Int'l Bold Italic") */ url("#{$basepath}/fonts/Suisse BP Int'l Bold Italic.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-Bold") */
+        /* local("Suisse BP Int'l Bold") */ url("#{$basepath}/fonts/Suisse BP Int'l Bold.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-LightItalic") */
+        /* local("Suisse BP Int'l Light Italic") */ url("#{$basepath}/fonts/Suisse BP Int'l Light Italic.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-Light") */
+        /* local("Suisse BP Int'l Light") */ url("#{$basepath}/fonts/Suisse BP Int'l Light.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-MediumItalic") */
+        /* local("Suisse BP Int'l Medium Italic") */ url("#{$basepath}/fonts/Suisse BP Int'l Medium Italic.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-Medium") */
+        /* local("Suisse BP Int'l Medium") */ url("#{$basepath}/fonts/Suisse BP Int'l Medium.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-RegularItalic") */
+        /* local("Suisse BP Int'l Regular Italic") */ url("#{$basepath}/fonts/Suisse BP Int'l Regular Italic.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-Regular") */
+        /* local("Suisse BP Int'l Regular") */ url("#{$basepath}/fonts/Suisse BP Int'l Regular.woff");
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-ThinItalic") */
+        /* local("Suisse BP Int'l Thin Italic") */ url("#{$basepath}/fonts/Suisse BP Int'l Thin Italic.woff");
+}
+@font-face {
+  font-family: "Suisse Intl";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: 
+        /* local("SuisseBPIntl-Thin") */
+        /* local("Suisse BP Int'l Thin") */ url("#{$basepath}/fonts/Suisse BP Int'l Thin.woff");
+}

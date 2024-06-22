@@ -6,29 +6,8 @@
 
 $basepath: '../assets';
 
-@font-face {
-  font-family: 'Neue Plak';
-  font-style: normal;
-  font-weight: 700;
-  src: url('#{$basepath}/fonts/NeuePlakCondensedBold.woff') format('woff');
-  font-display: swap;
-}
+@import './fonts';
 
-@font-face {
-  font-family: 'Suisse Intl';
-  font-style: normal;
-  font-weight: 400;
-  src: url('#{$basepath}/fonts/SuisseIntl-Regular.ttf') format('ttf');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Suisse Intl';
-  font-style: normal;
-  font-weight: bold;
-  src: url('#{$basepath}/fonts/SuisseIntl-Bold.ttf') format('ttf');
-  font-display: swap;
-}
 
 @layer theme {
   .theme {

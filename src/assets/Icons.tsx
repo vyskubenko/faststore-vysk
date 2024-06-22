@@ -90,3 +90,13 @@ export const StoreLocatorIconBlue = (props:any)=>{
 </svg>
   )
 }
+
+
+export const ArrowRightPath = (props:any)=>{
+  return (
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.75 9H14.25" stroke="#1C4DA1" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M10 3.75L15.25 9L10 14.25" stroke="#1C4DA1" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>
+  )
+}

@@ -186,17 +186,10 @@ export default function CustomHeader(props: CustomHeaderProps)  {
 
       {displayNavbar && (
 
-        <NavbarLinks className={styles.navLinks__mobile}>
-          <NavbarLinksList className={styles.customHeader__menu}>
-            {mainMenu.map((link) => (
-              <NavbarLinksListItem key={link.title}>
-                <Link variant="display" href={link.href}>
-                  {link.title}
-                </Link>
-              </NavbarLinksListItem>
-            ))}
-          </NavbarLinksList>
-        </NavbarLinks>
+        <div  className={styles.navLinks__mobile}>
+          <Menu menu={mainMenu} />
+        </div>
+        
       )}
     </Navbar>
   );

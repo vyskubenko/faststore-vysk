@@ -19,11 +19,10 @@ const MenuItem = ({ item, level, isOpen, onClick }: any) => {
 
   const hasChildren = item.submenu && item.submenu.length > 0;
 
-  console.log(item)
 
   return (
     <NavbarLinksListItem
-      className={`${styles.subMenu__item} ${item.headTitle ? 'subMenu__item__headTitle' : ''} ${hasChildren ? "has-children" : ""}`}
+      className={`${styles.subMenu__item} ${item.headTitle ? 'subMenu__item__headTitle' : ''} ${hasChildren ? "has-children" : ""} ${isOpen ? styles.subMenu__itemOpen : ""} `}
       data-level={level}
       data-headtitle={item.headTitle}
     >

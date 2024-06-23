@@ -1,9 +1,11 @@
 .customHeader {
   background-color: #FFF;
   
-  @import '@faststore/ui/src/components/molecules/Dropdown/styles.scss'
+  @import '@faststore/ui/src/components/molecules/Dropdown/styles.scss';
 
-
+  [data-fs-navbar-header] {
+    background-color: #FFF;
+  }
 }
 
 .customHeader__wrapper {
@@ -63,6 +65,11 @@
 
   position: initial !important;
 
+  
+  @include media("<notebook") {
+    padding: var(--fs-spacing-1) var(--fs-spacing-3) !important;
+  }
+
 }
 
 .customHeader__menu {
@@ -75,12 +82,48 @@
 
   [data-fs-navbar-links-list-item] {
     padding: 15px;
+    transition: all ease 0.3s;
+    cursor: pointer;
     --fs-navbar-links-link-padding-notebook:0 10px;
+
+    @include media("<notebook") {
+      border-bottom: 1px solid #bbb;
+    }
   }
+
+  > [data-fs-navbar-links-list-item] {
+    width: auto;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:hover {
+      box-shadow: inset 0px -4px #cecece;
+    }
+    &.subMenu__itemOpen {
+      box-shadow: inset 0px -4px #CB542B;
+    }
+
+    > .navLink {
+      svg {
+        display: none;
+        @include media("<notebook") {
+          display: block;
+        }
+      }
+    }
+
+     
+  }
+  
 
   &::before {
     display: none;
   }
+
+
+
 }
 
 .topBar {
@@ -88,6 +131,8 @@
   color:#FFF;
   text-align: center;
   display: flex;
+
+
   
 }
 
@@ -95,6 +140,14 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+
+  @include media("<notebook") {
+    .topBar__listLeft, 
+    .topBar__listRight {
+      display: none;
+    }
+  }
 }
 
 .topBar__list {
@@ -205,67 +258,9 @@
   height: calc(100vh - 100%);
 }
 
-
-
-@include media("<notebook") {
-
-  .buttonMenu {
-    display: flex !important;
-  }
-
-  .customHeader__wrapper {
-    flex-wrap: wrap;
-
-    [data-fs-search-dropdown] {
-      width: 100%;
-      left: 0;
-    }
-  }
-
-  .customHeader__logo {
-    margin: 0 auto;
-    position: relative;
-    left: 40px;
-  }
-
-  .customHeader__navLinks {
-    display: none;
-  }
-
-  .navLinks__mobile {
-    .customHeader__navLinks {
-      display: block;
-    }
-    .subMenu {
-      &[data-level="1"],
-      &[data-level="2"] {
-        top: 0;
-        width: 100%;
-        height: 100%;
-        left: 0;
-      }
-    }
-  
-  }
-  .customHeader__search[data-fs-search-input] { 
-    order: 10;
-    width: 100%;
-    margin: 0;
-    padding: 0 0 20px 0;
-  }
-
-  .topbar__regionBar {
-    display: none;
-  }
-
-  
-}
-
-
 .subMenu {
   
   padding: var(--fs-spacing-5) var(--fs-spacing-6);
-
 
   &[data-level="1"],
   &[data-level="2"] {
@@ -274,6 +269,8 @@
     margin: 0;
     position: absolute;
     overflow: visible;
+    left:0;
+    animation: fadeIn 0.3s ease-in-out;
 
   }
 
@@ -290,8 +287,10 @@
       background: #000;
       z-index: -1;
       opacity: 0.7;
-      margin-top: calc(var(--fs-spacing-5) * -1);
-      margin-left: calc(var(--fs-spacing-6) * -1);
+      margin:0;
+      top:0;
+      left:0;
+        animation: fadeIn3 0.3s ease-in-out;
     }
   }
 
@@ -300,6 +299,13 @@
     top: 0;
     background-color: #E4EAF4;
     min-height: 100%;
+    z-index:-1;
+    animation: fadeIn2 0.3s ease-in-out;
+
+    @include media("<notebook") {
+      z-index:initial;
+      animation: fadeIn 0.3s ease-in-out;
+    }
     
   }
 
@@ -311,22 +317,51 @@
     color:var(--fs-color-main-1);
     font-size:var(--fs-text-size-base);
 
+    font-weight: 500;
+
     &__close {
-
       margin-right: -15px;
-
       path {
         fill:var(--fs-color-main-1);
       }
-     
+    }
+
+    @include media("<notebook") { 
+      justify-content: left;
+
+      h4 {
+        order: 1;
+      }
+      &__close {
+        display: block !important;
+        order: 0;
+        margin-right: var(--fs-spacing-3);
+
+        svg {display: none;}
+        [data-fs-button-icon]:before {
+          content:"";
+           background:url("../../assets/arrowLeftMenu.svg") center;
+           width:10px;
+           height:18px;
+           display:inline-block;
+       }
+      }
     }
   }
 
   &__item {
     width: 100%;
+    
 
     [data-fs-navbar-links-list-item] {
       padding: 0;
+    }
+
+    [data-fs-link] {
+      transition: all ease 0.3s;
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     &[data-level="3"],
@@ -357,7 +392,19 @@
       }
       &:not([data-headtitle="false"]) + li:not([data-headtitle="true"]) {
         margin-top: 20px;
+
+        @include media("<notebook") { 
+          margin-top: 0px;
+        }
       }
+    }
+
+    @include media("<notebook") {
+      .navLink {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+     }
     }
     
   }
@@ -368,4 +415,87 @@
 .navLink {
   display: flex;
   align-items: center;
+}
+
+
+@keyframes fadeIn {
+  from { left: -100%;overflow:hidden }
+  to { left:0;overflow:initial }
+}
+
+@keyframes fadeIn3 {
+  from { opacity: 0; }
+  to { opacity:0.7; }
+}
+
+@keyframes fadeIn2 {
+  from { left: -100%;overflow:hidden }
+  to { left:100%;overflow:initial }
+}
+
+
+
+
+
+@include media("<notebook") {
+
+  .buttonMenu {
+    display: flex !important;
+    margin-right: 0 !important;
+  }
+
+  .customHeader__wrapper {
+    flex-wrap: wrap;
+
+    [data-fs-search-dropdown] {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  .customHeader__logo {
+    margin: 0 auto 0 0;
+  }
+  
+  .customHeader__regionBar,
+  .navButtons__item__text,
+  .customHeader__navLinks,
+  .navButtons__item__contact {
+    display: none;
+  }
+
+  .navLinks__mobile {
+    .customHeader__navLinks {
+      display: block;
+    }
+    .subMenu {
+      &[data-level="1"],
+      &[data-level="2"] {
+        top: 0;
+        width: 100%;
+        height: 100%;
+        left: 0;
+      }
+    }
+  
+  }
+  .customHeader__search[data-fs-search-input] { 
+    order: 10;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 20px 0;
+  }
+
+  .navButtons__item {
+    margin: 0 var(--fs-spacing-3);
+    &Cart {
+      width: auto !important;
+      margin: 0 var(--fs-spacing-3);
+      
+      [data-fs-button-wrapper] {
+        padding: 0 10px !important;
+      }
+    }
+  }
+  
 }

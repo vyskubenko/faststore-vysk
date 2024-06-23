@@ -57,7 +57,9 @@ export default function CustomHeader(props: CustomHeaderProps)  {
       <div className={styles.topBar}>
         <div data-fs-content="topbar" className={styles.topBar__wrapper}>
 
-          {topbar?.left ?? (<span className="left">{topbar?.left}</span>) }
+          {topbar?.left ? ( 
+            <span className={styles.topBar__listLeft}>{topbar?.left}</span>
+          ):''}
           {topbar?.center?.length > 0 && (
             <ul className={styles.topBar__list}>
               {topbar.center.map((item, index) => (
@@ -67,9 +69,10 @@ export default function CustomHeader(props: CustomHeaderProps)  {
               ))}
             </ul>
           )}
-          {topbar?.right ?? (<span className="right">{topbar?.right}</span>) }
+          {topbar?.right ? (
+            <span className={styles.topBar__listRight}>{topbar?.right}</span>
+          ):'' }
 
-          
         </div>
       </div>
 
@@ -77,18 +80,7 @@ export default function CustomHeader(props: CustomHeaderProps)  {
         <NavbarRow>
           <div className={styles.customHeader__wrapper}>
 
-            <IconButton
-              data-fs-navbar-button-menu
-              aria-label="Open Menu"
-              className={styles.buttonMenu}
-              icon={displayNavbar ? <img
-                src={closeIcon.src}
-                width={closeIcon.width}
-                height={closeIcon.height}
-                data-fs-icon
-              /> : <Icon name="List" width={30} height={30} />}
-              onClick={displayNavbar ? closeNavbar : openNavbar}
-            />
+            
 
             <Link
               data-fs-navbar-logo
@@ -136,7 +128,7 @@ export default function CustomHeader(props: CustomHeaderProps)  {
               
               <Link
                 href="/contact-us"
-                className={styles.navButtons__item}
+                className={`${styles.navButtons__item} ${styles.navButtons__item__contact}`}
               >
                 <PhoneIcon />
                 <span className={styles.navButtons__item__text}>
@@ -171,6 +163,18 @@ export default function CustomHeader(props: CustomHeaderProps)  {
                   Bag ({cart.totalItems})
                 </span>
               </IconButton>
+              <IconButton
+                data-fs-navbar-button-menu
+                aria-label="Open Menu"
+                className={`${styles.navButtons__item} ${styles.buttonMenu}`}
+                icon={displayNavbar ? <img
+                  src={closeIcon.src}
+                  width={closeIcon.width}
+                  height={closeIcon.height}
+                  data-fs-icon
+                /> : <Icon name="List" width={30} height={30} />}
+                onClick={displayNavbar ? closeNavbar : openNavbar}
+              />
             </NavbarButtons>
           </div>
         </NavbarRow>

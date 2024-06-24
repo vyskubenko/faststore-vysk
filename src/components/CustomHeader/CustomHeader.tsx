@@ -159,8 +159,8 @@ export default function CustomHeader(props: CustomHeaderProps)  {
                 {/* <Badge counter variant="info">
                   
                 </Badge> */}
-                  <span className={styles.navButtons__item__text}>
-                  Bag ({cart.totalItems})
+                <span className={styles.navButtons__item__text}>
+                  Bag ( {cart.totalItems} )
                 </span>
               </IconButton>
               <IconButton

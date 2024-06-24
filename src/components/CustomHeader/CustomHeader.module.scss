@@ -81,9 +81,8 @@
   justify-content: space-evenly;
 
   [data-fs-navbar-links-list-item] {
-    padding: 15px;
     transition: all ease 0.3s;
-    cursor: pointer;
+    
     --fs-navbar-links-link-padding-notebook:0 10px;
 
     @include media("<notebook") {
@@ -93,7 +92,7 @@
 
   > [data-fs-navbar-links-list-item] {
     width: auto;
-
+    
     &:hover {
       text-decoration: none;
     }
@@ -106,6 +105,10 @@
     }
 
     > .navLink {
+      cursor: pointer;
+
+      --fs-navbar-links-link-padding-notebook:15px;
+
       svg {
         display: none;
         @include media("<notebook") {

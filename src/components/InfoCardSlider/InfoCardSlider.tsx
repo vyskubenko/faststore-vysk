@@ -38,6 +38,7 @@ const InfoCardSlider = ({
         variant="scroll"
         controls="navigationArrows"
         infiniteMode={infiniteMode}
+        className={styles.infoCardSlider__Carousel}
       >
         {list.map(({ imageDesktop, name, url }) => (
           <div className={styles.infoCardSlider__item} key={url} data-fs-carousel-banner>

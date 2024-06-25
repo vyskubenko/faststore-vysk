@@ -36,6 +36,10 @@
 
 .carouselBanners__item {
     position: relative;
+
+    picture {
+        width: 100%;
+    }
 }
 
 .carouselBanners__content {
@@ -49,7 +53,7 @@
 .carouselBanners__title {
    text-transform: uppercase;
    clear: both;
-   font-size: var(--fs-text-size-8);
+   font-size: var(--fs-text-size-6);
    margin-bottom: 10px;
    color: var(--fs-color-main-2);
    font-family: var(--fs-text-face-title);

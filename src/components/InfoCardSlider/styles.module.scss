@@ -52,7 +52,7 @@
 		color: var(--fs-color-main-3);
 		font-family: var(--fs-text-face-title);
 		text-transform: uppercase;
-		font-size: 40px;
+		font-size: var(--fs-text-size-4);
 		font-weight: 700;
 		text-align: center;
 
@@ -60,6 +60,10 @@
 		margin: 20px 0;
 
 	}
+}
+
+.infoCardSlider__Carousel {
+  width: 100%;
 }
 
 .infoCardSlider__item {

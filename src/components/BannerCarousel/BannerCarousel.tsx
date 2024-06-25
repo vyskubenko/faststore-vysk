@@ -1,5 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { Carousel, Button, Link } from "@faststore/ui";
+// @ts-ignore next-line
+import { Image_unstable as Image } from "@faststore/core/experimental";
+
 
 import styles from "./styles.module.scss";
 
@@ -16,11 +19,20 @@ export interface BannerCarouselProps {
   infiniteMode: boolean;
 }
 
+
+
+
 const BannerCarousel = ({
   list,
   itemsPerPage,
   infiniteMode,
 }: BannerCarouselProps) => {
+
+  const [dimensions, setDimensions] = useState({dimensions: {}} as any)
+
+  const onImgLoad = function(img:any) {
+    setDimensions({height:img.target.height, width:img.target.width});
+  }
 
   return (
     <section className={styles.carouselBanners}>
@@ -29,7 +41,7 @@ const BannerCarousel = ({
         variant="slide"
         infiniteMode={infiniteMode}
       >
-        {list.map(({ imageDesktop, imageMobile, name, linkName, url }) => (
+        {list.map(({ imageDesktop, imageMobile, name, linkName, url }, i) => (
           <div className={styles.carouselBanners__item} key={url} data-fs-carousel-banner>
             <Link href={url}>
               <picture>
@@ -41,7 +53,18 @@ const BannerCarousel = ({
                   media="(min-width: 1280px)"
                   srcSet={imageDesktop}
                 />
-                <img src={imageDesktop} alt={name} data-fs-image />
+
+                <Image
+                  preload
+                  data-fs-image
+                  src={imageDesktop}
+                  width={dimensions.width||1000}
+                  height={dimensions.height||500}
+                  alt={name}
+                  priority={!i ? true : false}
+                  loading="eager"
+                  onLoad={onImgLoad}
+                />
               </picture>
               <div className={styles.carouselBanners__content}>
                 <h3 className={styles.carouselBanners__title}>{name}</h3>

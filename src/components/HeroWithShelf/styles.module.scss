@@ -2,6 +2,8 @@
 
 .HeroWithShelf {
 
+  
+
   margin:var(--fs-spacing-8) 0;
 
   display: flex;
@@ -9,6 +11,11 @@
   [data-fs-link] {
     @import '@faststore/ui/src/components/atoms/Link/styles.scss';
     
+  }
+
+  [data-fs-carousel] [data-fs-carousel-track] {
+    --fs-carousel-padding-desktop: 0;
+    --fs-carousel-padding-mobile: 0;
   }
 
   .HeroWithShelf__content {
@@ -24,7 +31,7 @@
 
     .HeroWithShelf__title,
     .HeroWithShelf__description {
-      width: 60%;
+      width: 70%;
     }
 
     .HeroWithShelf__content {
@@ -64,6 +71,17 @@
     .HeroWithShelf__link {
       @extend %primary-button;
     }
+  }
+
+  [data-fs-skeleton] {
+
+    @include media(">notebook") {
+      aspect-ratio: 7.35 / 3;
+    }
+    width: 100%;
+    height: auto !important;
+    border-radius: 5px;
+    opacity: 0.3;
   }
   
 }

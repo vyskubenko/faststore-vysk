@@ -1,11 +1,15 @@
 import React, { useState, useEffect, ReactElement, FC } from "react";
-import { Skeleton, Link, ProductGrid, Carousel } from "@faststore/ui";
+import { Skeleton, Link, Carousel } from "@faststore/ui";
 
 import styles from "./styles.module.scss";
 
 import { useProductsQuery } from "@faststore/core";
 
 import CustomProductCard from "../CustomProductCard/CustomProductCard";
+
+// @ts-ignore next-line
+import { Image_unstable as Image } from "@faststore/core/experimental";
+
 
 export interface HeroWithShelfProps {
   title: string;
@@ -76,7 +80,7 @@ const HeroWithShelf: FC<HeroWithShelfProps> = ({
         <div className={`${styles.HeroWithShelf__shelf}`} data-fs-carousel-container>
           {loading ? (
             <Skeleton
-              size={{ width: "100%", height: "100%" }}
+              size={{ width: "100%", height: "100px" }}
               borderRadius="5px"
             />
           ) : (
@@ -104,8 +108,17 @@ const HeroWithShelf: FC<HeroWithShelfProps> = ({
         data-fs-background={color}
       >
         <picture data-fs-image>
-          <source media="(max-width: 799px)" srcSet={image} data-fs-image />
-          <img src={image} alt={image} data-fs-image />
+          <source media="(max-width: 799px)" srcSet={image} />
+          <Image
+            preload
+            data-fs-image
+            src={image}
+            width={799}
+            height={500}
+            alt={title}
+            priority={true}
+            loading="eager"
+          />
         </picture>
       </div>
     </section>

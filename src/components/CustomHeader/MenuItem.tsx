@@ -61,6 +61,7 @@ const MenuItem = ({ item, level, isOpen, onClick }: any) => {
           {item.submenu.map((subItem: any, index: any) => (
             <MenuItem
               item={subItem}
+              key={index}
               level={level + 1}
               isOpen={subMenuOpenIndex === index}
               onClick={() => handleSubItemClick(index)}

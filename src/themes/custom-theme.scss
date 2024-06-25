@@ -33,18 +33,25 @@ $basepath: '../assets';
 
     // NUMERIC SCALE
 
-    --fs-text-scale-desktop              : 1.27;
+    --fs-text-scale-desktop              : 3.27;
+    --fs-text-scale-mobile               : 0.7;
+    --fs-scale                           : var(--fs-text-scale-mobile);
+
+    @include media("<notebook") {
+      --fs-scale                         : var(--fs-text-scale-mobile);
+    }
+
     --fs-text-size-base                  : 16px; // 1rem
 
     --fs-text-size-0                     : 12px; // Smallest
     --fs-text-size-1                     : 14px; // Smaller                               
     --fs-text-size-2                     : var(--fs-text-size-base);                      
-    --fs-text-size-3                     : calc(var(--fs-text-size-2) * var(--fs-scale)); 
-    --fs-text-size-4                     : calc(var(--fs-text-size-3) * var(--fs-scale)); 
-    --fs-text-size-5                     : calc(var(--fs-text-size-4) * var(--fs-scale)); 
-    --fs-text-size-6                     : calc(var(--fs-text-size-5) * var(--fs-scale)); 
-    --fs-text-size-7                     : calc(var(--fs-text-size-6) * var(--fs-scale)); 
-    --fs-text-size-8                     : calc(var(--fs-text-size-7) * var(--fs-scale)); 
+    --fs-text-size-3                     : 20px; 
+    --fs-text-size-4                     : calc(40px * var(--fs-scale));
+    --fs-text-size-5                     : calc(56px * var(--fs-scale)); 
+    --fs-text-size-6                     : calc(64px * var(--fs-scale)); 
+    --fs-text-size-7                     : calc(72px * var(--fs-scale)); 
+    --fs-text-size-8                     : calc(102px * var(--fs-scale)); 
 
 
     --fs-text-size-headtitle             : 102px;

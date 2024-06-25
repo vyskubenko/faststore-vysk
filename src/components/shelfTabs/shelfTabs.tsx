@@ -1,5 +1,5 @@
 import React, {useState, useEffect, ReactElement, FC } from "react";
-import { Skeleton, Link,Carousel} from "@faststore/ui";
+import { Skeleton, Link, Carousel, SelectField } from "@faststore/ui";
 
 import styles from "./styles.module.scss";
 
@@ -51,6 +51,7 @@ const shelfTabs: FC<styleTabsProps> = ({
     }
   }, [fetchedData]); 
 
+
   return (
     <section className={styles.shelfTabs} data-fs-content>
       <div className={`${styles.shelfTabs__header} tab__header`}>
@@ -58,35 +59,56 @@ const shelfTabs: FC<styleTabsProps> = ({
 
         <div className={styles.shelfTabs__links}>
           {tabs.map((item, index) => (
-            <Link 
+            <Link
               key={index}
+              className={styles.shelfTabs__links__item}
               variant={index === activeTab ? "display" : "default"}
               onClick={() => {
-                //setLoading(true); 
-                setActiveTab(index)}
-              }
+                setLoading(true);
+                setActiveTab(index);
+              }}
             >
               {item.title}
             </Link>
           ))}
+          <select
+            className={styles.shelfTabs__select}
+            onChange={e => {
+              setLoading(true)
+              setActiveTab(e?.target?.value as any)
+            }}
+          >
+            {tabs.map((item, index) => (
+              <option value={index} selected={index === activeTab ? true : false} >{item.title}</option>
+            ))}
+          </select>
         </div>
-        
       </div>
       <div className={`${styles.shelfTabs__container} tab__container`}>
-        <div className={`${styles.shelfTabs__gallery} tab__content`}  data-fs-carousel-container>
+        <div
+          className={`${styles.shelfTabs__gallery} tab__content`}
+          data-fs-carousel-container
+        >
           {loading ? (
-            <Skeleton size={{ width: '100%', height: '100%' }} borderRadius="5px" />
+            <Skeleton
+              size={{ width: "100%", height: "100%" }}
+              borderRadius="5px"
+            />
           ) : (
-            <Carousel itemsPerPage={isMobile ? 1 : 4} variant="scroll" controls="navigationArrows" >
-                {productsJson &&
-                  productsJson.map((product: any, idx: number) => (
-                    <CustomProductCard
-                      product={product}
-                      key={product}
-                      idx={idx}
-                    ></CustomProductCard>
-                  ))}
-              </Carousel>
+            <Carousel
+              itemsPerPage={isMobile ? 1 : 4}
+              variant="scroll"
+              controls="navigationArrows"
+            >
+              {productsJson &&
+                productsJson.map((product: any, idx: number) => (
+                  <CustomProductCard
+                    product={product}
+                    key={product}
+                    idx={idx}
+                  ></CustomProductCard>
+                ))}
+            </Carousel>
           )}
         </div>
       </div>

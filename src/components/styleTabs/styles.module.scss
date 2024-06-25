@@ -74,7 +74,14 @@
 
 }
 
+.styleTabs__gallery,
+.styleTabs__banner {
+  height: auto;
 
+  @include media(">notebook") {
+    aspect-ratio: 3/3.5;
+  }
+}
 
 .styleTabs__banner {
 
@@ -93,7 +100,7 @@
 .carouselBanners__title {
   text-transform: uppercase;
   clear: both;
-  font-size: var(--fs-text-size-8);
+  font-size: var(--fs-text-size-7);
   margin-bottom: 10px;
   color: var(--fs-color-main-3);
   font-family: var(--fs-text-face-title);

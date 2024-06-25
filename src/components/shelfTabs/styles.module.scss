@@ -9,6 +9,16 @@
     @import '@faststore/ui/src/components/atoms/Link/styles.scss';
     
   }
+
+  [data-fs-skeleton] {
+
+    @include media(">notebook") {
+      aspect-ratio: 11 / 3;
+    }
+    width: 100%;
+    height: auto !important;
+    border-radius: 5px;
+  }
 }
 
 .shelfTabs__header {
@@ -36,7 +46,7 @@
 }
 
 .shelfTabs__title {
-  font-size: var(--fs-text-size-7);
+  font-size: var(--fs-text-size-8);
   font-family: var(--fs-text-face-title);
   margin-bottom: var(--fs-spacing-4);
   text-transform: uppercase;
@@ -56,6 +66,24 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.shelfTabs__select {
+  display:none;
+  border:none;
+  font-size: var(--fs-text-size-base);
+  padding: 10px 0 10px 10px;
+
+  @include media("<notebook") {
+    display: block;
+  }
+
+}
+
+.shelfTabs__links__item {
+  @include media("<notebook") {
+    &[data-fs-link] {display: none;}
+  }
 }
 
 

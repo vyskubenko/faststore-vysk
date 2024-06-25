@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./CustomHeader.module.scss";
 import {
   RegionBar,
-  NavbarLinks,
-  NavbarLinksList,
-  NavbarLinksListItem,
   IconButton,
   Icon,
   Link,
@@ -30,6 +27,7 @@ import {
   useSession_unstable as useSession,
   //useCheckoutButton_unstable as useCheckoutButton,
   useCartToggleButton_unstable as useCartToggleButton,
+  Image_unstable as Image,
   // @ts-ignore next-line
 } from "@faststore/core/experimental";
 
@@ -89,10 +87,18 @@ export default function CustomHeader(props: CustomHeaderProps)  {
               prefetch={false}
               className={styles.customHeader__logo}
             >
-              <img
-                src={props.logo.src}
-                style={{ width: "100%", height: "auto" }}
-              />
+
+              <Image
+                  preload
+                  data-fs-image
+                  style={{ width: "100%", height: "auto" }}
+                  src={props.logo.src}
+                  width={60}
+                  height={57}
+                  alt={props.logo.link.title}
+                  priority={true}
+                  loading="eager"
+                />
             </Link>
 
             <SearchInput  className={styles.customHeader__search} />

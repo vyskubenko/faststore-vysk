@@ -254,12 +254,12 @@
               "imageDesktop": {
                 "title": "Image Desktop",
                 "type": "string",
-                "widget": { "ui:widget": "image-uploader" }
+                "widget": { "ui:widget": "media-gallery" }
               },
               "imageMobile": {
                 "title": "Image Mobile",
                 "type": "string",
-                "widget": { "ui:widget": "image-uploader" }
+                "widget": { "ui:widget": "media-gallery" }
               },
               "name": {
                 "title": "Name",
@@ -673,6 +673,38 @@
                 "type": "string",
                 "widget": { "ui:widget": "image-uploader" }
               },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "url": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "CustomFooter",
+    "schema": {
+      "title": "Custom Footer",
+      "type": "object",
+      "required": [],
+      "properties": {
+				"title": {
+          "title": "Headtitle",
+          "type": "string"
+        },
+        "list": {
+          "title": " Column",
+          "type": "array",
+          "items": {
+            "title": "Item",
+            "type": "object",
+            "properties": {
               "name": {
                 "title": "Name",
                 "type": "string"

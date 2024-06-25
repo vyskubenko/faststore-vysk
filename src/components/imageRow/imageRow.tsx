@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "@faststore/ui";
+// @ts-ignore next-line
+import { Image_unstable as Image } from "@faststore/core/experimental";
 
 import styles from "./styles.module.scss";
 
@@ -17,6 +19,13 @@ const ImageRow = ({
   list,
   title
 }: ImageRowProps) => {
+
+  const [dimensions, setDimensions] = useState({dimensions: {}} as any)
+
+  const onImgLoad = function(img:any) {
+    setDimensions({height:img.target.height, width:img.target.width});
+  }
+
   return (
     <section className={styles.imageRow} data-fs-content>
 
@@ -31,7 +40,17 @@ const ImageRow = ({
                     srcSet={image}
                     data-fs-image
                   />
-                  <img src={image} alt={name} title={name} data-fs-image />
+                  <Image
+                    preload
+                    data-fs-image
+                    src={image}
+                    width={dimensions.width||100}
+                    height={dimensions.height||50}
+                    alt={name}
+                    priority={true}
+                    loading="eager"
+                    onLoad={onImgLoad}
+                  />
                 </picture>
               </Link>
             </li>

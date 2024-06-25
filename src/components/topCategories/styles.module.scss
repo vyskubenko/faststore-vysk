@@ -32,6 +32,11 @@ $basepath: '../../assets';
     text-decoration: none;
     padding: 0 10%;
     width: 100%;
+
+    @include media("<notebook") {
+      padding: 0 20px 0 0;
+      justify-content: space-between;
+    }
   }
 }
 

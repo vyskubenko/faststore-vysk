@@ -10,7 +10,22 @@ import ShelfWithVideo from './ShelfWithVideo/ShelfWithVideo'
 import gearUp from './gearUp/gearUp'
 import infoCardShelf from './infoCardShelf/infoCardShelf'
 import topCategories from './topCategories/topCategories'
+import CustomFooter from './CustomFooter/CustomFooter'
 
 
 
-export default { BannerSlider, BannerCarousel, CustomHeader, InfoCardSlider, styleTabs, imageRow, HeroWithShelf, shelfTabs, ShelfWithVideo, gearUp, infoCardShelf, topCategories}
+export default {
+  BannerSlider,
+  BannerCarousel,
+  CustomHeader,
+  InfoCardSlider,
+  styleTabs,
+  imageRow,
+  HeroWithShelf,
+  shelfTabs,
+  ShelfWithVideo,
+  gearUp,
+  infoCardShelf,
+  topCategories,
+  CustomFooter
+};

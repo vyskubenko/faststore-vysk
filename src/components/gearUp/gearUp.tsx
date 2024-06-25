@@ -37,9 +37,11 @@ const gearUp: FC<gearUpProps> = ({
 
   return (
     <section className={styles.gearUp}>
-      <h4 className={styles.gearUp__title}>{title}</h4>
-      <p className={styles.gearUp__description}>{description}</p>
 
+      <div className={styles.gearUp__container__text}>
+        <h4 className={styles.gearUp__title}>{title}</h4>
+        <p className={styles.gearUp__description}>{description}</p>
+      </div>
       <div className={styles.gearUp__container}>
         <div className={styles.gearUp__category}>
 
@@ -102,19 +104,25 @@ const gearUp: FC<gearUpProps> = ({
         </div>
         <div className={`${styles.gearUp__parts__container} tab__container`}>
 
-        <div className={styles.gearUp__parts__container__wrapper}>
+        <ul className={styles.gearUp__parts__container__wrapper}>
               
             {tabs[activeTab]?.parts[activeCategoryTab]?.links.map((link:any, index:any) => (
-              <Link 
+              <li
                 key={index}
-                href={link.href}
                 className={styles.gearUp__parts__link}
               >
-                <img src={link.image} alt={link.title} data-fs-image />
-                {link.title}
-              </Link>
+
+                <Link 
+                  key={index}
+                  href={link.href}
+                  className={styles.gearUp__parts__link__a}
+                >
+                  <img src={link.image} alt={link.title} data-fs-image />
+                  {link.title}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
       

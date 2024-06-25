@@ -44,6 +44,7 @@ const styleTabs: FC<styleTabsProps> = ({ tabs }): ReactElement => {
     term: "",
     selectedFacets: [{ key: "productClusterIds", value: collectionId }],
   });
+  
 
   useEffect(() => {
     if (fetchedData) {

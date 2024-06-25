@@ -18,7 +18,7 @@ const topCategories: FC<topCategoriesProps> = ({
   list,
   title
 }): ReactElement => {
-
+  
   return (
     <section className={styles.topCategories} data-fs-content>
 

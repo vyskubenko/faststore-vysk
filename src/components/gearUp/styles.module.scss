@@ -58,6 +58,7 @@ $basepath: '../../assets';
   font-family: var(--fs-text-face-title);
   margin-bottom: var(--fs-spacing-4);
   text-transform: uppercase;
+  line-height: 65px;
 }
 
 
@@ -67,7 +68,13 @@ $basepath: '../../assets';
   justify-content: space-between;
   width: 100%;
   margin-top: var(--fs-spacing-11);
+
+  &__text {
+    padding: 0 var(--fs-spacing-4) var(--fs-spacing-4) var(--fs-spacing-4);
+  }
 }
+
+
 
 
 .gearUp__parts__container {
@@ -84,19 +91,35 @@ $basepath: '../../assets';
   .gearUp__parts__link {
     display: block;
     text-align: left;
-    color: #FFF;
-    text-decoration: none;
+    
+    
     width: calc(25% - var(--fs-spacing-5));
     height: auto;
     margin: 0 var(--fs-spacing-5) var(--fs-spacing-5) 0;
     font-size: var(--fs-text-size-3);
+    position: relative;
 
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-        margin-bottom: var(--fs-spacing-3);
+    * {
+      transition: all ease 0.3s;
+    }
+
+    &__a {
+      text-decoration: none;
+      color: #FFF;
+      display: block;
+      width:100%;
+
+      &:hover {
+        scale: 1.1;
       }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: var(--fs-spacing-3);
+    }
 
   }
 }

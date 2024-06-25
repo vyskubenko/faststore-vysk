@@ -216,12 +216,12 @@
 
   [data-fs-icon] {
     margin-right: 10px;
-
-
+    min-width: 26px;
   }
 }
 
 .customHeader__search {
+  
   
   [data-fs-search-input-field] [data-fs-search-input-field-input] {
     background-color: #F6F9FF;
@@ -229,7 +229,7 @@
     border:1px solid #D3DEF1;
     color:var(--fs-color-main-6);
     font-size:var(--fs-text-size-2);
-    padding-left: var(--fs-search-input-field-input-padding-right);
+    padding-left: 40px;
     padding-right: var(--fs-input-padding);
   }
 

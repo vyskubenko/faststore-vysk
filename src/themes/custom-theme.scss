@@ -22,6 +22,17 @@ $basepath: '../assets';
     --fs-color-main-5: #393939;
     --fs-color-main-6: #1D1D1D;
 
+    --fs-color-als-gray-1:#E4E4E4;
+    --fs-color-als-gray-2:#BBBBBB;
+    --fs-color-als-gray-3:#8E8E8E;
+    --fs-color-als-gray-4:#616161;
+    --fs-color-als-gray-5:#3F3F3F;
+    --fs-color-als-gray-6:#1D1D1D;
+    --fs-color-als-gray-7:#1A1A1A;
+    --fs-color-als-gray-8:#151515;
+    --fs-color-als-gray-9:#111;
+    --fs-color-als-gray-10:#0A0A0A;
+
     --fs-link-text-color: var(--fs-color-main-6);
 
     
@@ -60,6 +71,33 @@ $basepath: '../assets';
     // Spacing (UI Essentials)
     // --------------------------------------------------------
 
+    // NUMERIC SCALE
+    --fs-spacing-0                       : .25rem; //  4px
+    --fs-spacing-1                       : .5rem;  //  8px
+    --fs-spacing-2                       : .75rem; // 12px
+    --fs-spacing-3                       : 1rem;   // 16px (--fs-text-size-base)
+    --fs-spacing-4                       : 1.5rem; // 24px
+    --fs-spacing-5                       : 2rem;   // 32px
+    --fs-spacing-6                       : 2.5rem; // 40px
+    --fs-spacing-7                       : 3rem;   // 48px
+    --fs-spacing-8                       : 3.5rem; // 56px
+    --fs-spacing-9                       : 4rem;   // 64px
+    --fs-spacing-10                      : 4.5rem; // 72px
+    --fs-spacing-11                      : 5rem;   // 80px
+    --fs-spacing-12                      : 5.5rem; // 88px
+    --fs-spacing-13                      : 6rem;   // 96px
+
+    @include media("<notebook") {
+      --fs-spacing-6                       : calc(--fs-spacing-6 * var(var(--fs-scale)))
+      --fs-spacing-7                       : calc(--fs-spacing-7 * var(var(--fs-scale)))
+      --fs-spacing-8                       : calc(--fs-spacing-8 * var(var(--fs-scale)))
+      --fs-spacing-9                       : calc(--fs-spacing-9 * var(var(--fs-scale)))
+      --fs-spacing-10                      : calc(--fs-spacing-10 * var(var(--fs-scale)))
+      --fs-spacing-11                      : calc(--fs-spacing-11 * var(var(--fs-scale)))
+      --fs-spacing-12                      : calc(--fs-spacing-12 * var(var(--fs-scale)))
+      --fs-spacing-13                      : calc(--fs-spacing-13 * var(var(--fs-scale)))
+    }
+    
     // --------------------------------------------------------
     // Grid & Layout (UI Essentials)
     // -------------------------------------------------------- 

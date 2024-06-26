@@ -13,6 +13,7 @@ import topCategories from './topCategories/topCategories'
 import CustomFooter from './CustomFooter/CustomFooter'
 
 
+export * from './sections/CustomNewsletter/CustomNewsletter'
 
 export default {
   BannerSlider,

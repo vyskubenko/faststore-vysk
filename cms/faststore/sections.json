@@ -695,23 +695,96 @@
       "required": [],
       "properties": {
 				"title": {
-          "title": "Headtitle",
+          "title": "Title",
           "type": "string"
         },
         "list": {
-          "title": " Column",
+          "title": "Link list Column",
           "type": "array",
           "items": {
-            "title": "Item",
+            "title": "Column",
             "type": "object",
             "properties": {
               "name": {
                 "title": "Name",
                 "type": "string"
               },
-              "url": {
+              "links": {
+                "title": "Link",
+                "type": "array",
+                "items": {
+                  "title": "Link href",
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "title": "Name",
+                      "type": "string"
+                    },
+                    "href": {
+                      "title": "Link",
+                      "type": "string"
+                    }
+                  }
+                }
+                
+              }
+            }
+          }
+        },
+        "termsText": {
+          "title": "Copyright",
+          "type": "string"
+        },
+        "logo": {
+          "title": "Logo",
+          "type": "string",
+          "widget": {
+            "ui:widget": "media-gallery"
+          }
+        },
+        "termsLinks": {
+          "title": "Policies link",
+          "type": "array",
+          "items": {
+            "title": "Link",
+            "type": "object",
+            "properties": {
+              "text": {
+                "title": "Name",
+                "type": "string"
+              },
+              "href": {
                 "title": "Link",
                 "type": "string"
+              }
+            }
+          }
+        },
+        "supportLinks": {
+          "title": "Support links",
+          "type": "array",
+          "items": {
+            "title": "Link",
+            "type": "object",
+            "properties": {
+              "text": {
+                "title": "Name",
+                "type": "string"
+              },
+              "description": {
+                "title": "description",
+                "type": "string"
+              },
+              "href": {
+                "title": "href",
+                "type": "string"
+              },
+              "ico": {
+                "title": "ico",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
               }
             }
           }

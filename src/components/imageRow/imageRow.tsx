@@ -41,7 +41,6 @@ const ImageRow = ({
                     data-fs-image
                   />
                   <Image
-                    preload
                     data-fs-image
                     src={image}
                     width={dimensions.width||100}

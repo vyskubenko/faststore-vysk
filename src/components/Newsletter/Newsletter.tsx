@@ -1,6 +1,9 @@
 
 
 
+import React, {useState} from "react";
+
+
 import {
   Newsletter,
   NewsletterAddendum,
@@ -9,7 +12,8 @@ import {
   NewsletterHeader,
   Icon,
   Button,
-  InputField
+  InputField,
+  useUI
 } from "@faststore/ui";
 
 import styles from './section.module.scss'
@@ -27,6 +31,8 @@ function CustomNewsletter({
   colorVariant,
   ...otherProps
 }: NewsletterProps) {
+
+
 
 
   return (

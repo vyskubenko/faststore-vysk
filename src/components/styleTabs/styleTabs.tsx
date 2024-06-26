@@ -85,13 +85,12 @@ const styleTabs: FC<styleTabsProps> = ({ tabs }): ReactElement => {
                 data-fs-image
               />
               <Image
-                  preload
-                  data-fs-image
-                  src={tabs[activeTab].banner.image}
-                  alt={tabs[activeTab].banner.title}
-                  width={300}
-                  height={500}
-                />
+                data-fs-image
+                src={tabs[activeTab].banner.image}
+                alt={tabs[activeTab].banner.title}
+                width={300}
+                height={500}
+              />
             </picture>
             <div className={styles.carouselBanners__content}>
               <h3 className={styles.carouselBanners__title}>

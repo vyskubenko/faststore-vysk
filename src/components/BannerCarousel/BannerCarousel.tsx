@@ -55,7 +55,6 @@ const BannerCarousel = ({
                 />
 
                 <Image
-                  preload
                   data-fs-image
                   src={imageDesktop}
                   width={dimensions.width||1000}

@@ -110,7 +110,6 @@ const HeroWithShelf: FC<HeroWithShelfProps> = ({
         <picture data-fs-image>
           <source media="(max-width: 799px)" srcSet={image} />
           <Image
-            preload
             data-fs-image
             src={image}
             width={799}

@@ -89,7 +89,6 @@ export default function CustomHeader(props: CustomHeaderProps)  {
             >
 
               <Image
-                  preload
                   data-fs-image
                   style={{ width: "100%", height: "auto" }}
                   src={props.logo.src}

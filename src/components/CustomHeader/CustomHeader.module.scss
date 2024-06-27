@@ -283,6 +283,7 @@
     top: 100%;
     left: 0;
     background-color: #FFF;
+    box-shadow: none;
     
     &:before {
       content: "";
@@ -310,6 +311,20 @@
     @include media("<notebook") {
       z-index:initial;
       animation: fadeIn 0.3s ease-in-out;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      left: -100%;
+      height: 100%;
+      background: #FFF;
+      z-index: 2;
+      position: absolute;
+      top: 0;
+       animation: menuLevel2 0.5s ease;
+  
     }
     
   }
@@ -439,7 +454,10 @@
 }
 
 
-
+@keyframes menuLevel2 {
+  from { top: -100%; }
+  to { top:0; }
+}
 
 
 @include media("<notebook") {

@@ -30,6 +30,11 @@
             --fs-button-border-width: var(--fs-border-width);
             margin-top: auto;
         }
+
+        [data-fs-link] {
+            width: 100%;
+            aspect-ratio: auto 1731 / 913;
+        }
     }
 } 
 
@@ -38,7 +43,8 @@
     position: relative;
 
     picture {
-        width: 100%;
+        height: 100%;
+        width: auto;
     }
 }
 

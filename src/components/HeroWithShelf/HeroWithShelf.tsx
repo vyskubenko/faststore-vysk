@@ -80,7 +80,7 @@ const HeroWithShelf: FC<HeroWithShelfProps> = ({
         <div className={`${styles.HeroWithShelf__shelf}`} data-fs-carousel-container>
           {loading ? (
             <Skeleton
-              size={{ width: "100%", height: "100px" }}
+              size={{ width: "100%", height: "auto" }}
               borderRadius="5px"
             />
           ) : (

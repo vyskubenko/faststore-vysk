@@ -76,14 +76,17 @@ const ShelfWithVideo: FC<ShelfWithVideoProps> = ({
         </div>
       </div>
 
-      <div
-        className={`${styles.ShelfWithVideo__col} ${styles.ShelfWithVideo__banner__img} ${styles.ShelfWithVideo__banner} ShelfWithVideo__col`}
-        data-fs-hero-image
-      >
+      {video ? (
+        <div
+          className={`${styles.ShelfWithVideo__col} ${styles.ShelfWithVideo__banner__img} ${styles.ShelfWithVideo__banner} ShelfWithVideo__col`}
+          data-fs-hero-image
+        >
         <picture data-fs-video>
           <iframe className={styles.ShelfWithVideo__iframe} width="100%" height="100%" src={video} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
         </picture>
       </div>
+      ):''}
+      
     </section>
   );
 };

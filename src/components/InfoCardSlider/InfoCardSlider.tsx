@@ -34,7 +34,7 @@ const InfoCardSlider = ({
       <h2 className={styles.infoCardSlider__title}>{title}</h2>
 
       <Carousel
-        itemsPerPage={isMobile ? 2 : itemsPerPage}
+        itemsPerPage={!isMobile ? itemsPerPage : 2}
         variant="scroll"
         controls="navigationArrows"
         infiniteMode={infiniteMode}

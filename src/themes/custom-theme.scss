@@ -123,5 +123,8 @@ $basepath: '../assets';
     // --------------------------------------------------------
     // Add here the customizations for FastStore UI components.
 
+    @import '@faststore/ui/src/components/molecules/Modal/styles.scss';
+
+
   }
 }

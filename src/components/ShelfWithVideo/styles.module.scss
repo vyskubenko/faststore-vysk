@@ -8,6 +8,9 @@
   display: flex;
   flex-wrap: wrap;
 
+
+
+
   [data-fs-link] {
     @import '@faststore/ui/src/components/atoms/Link/styles.scss';
     
@@ -120,15 +123,49 @@
 .ShelfWithVideo__content {
   padding:var(--fs-spacing-8) calc(var(--fs-spacing-9) * 3);
   align-self: center;
-  width: 65%;
+  width: 60%;
+  padding-left: var(--fs-spacing-4);
 }
 
 .ShelfWithVideo__banner {
-  width: 35%;
+  width: 40%;
+
+  &__img {
+    [data-fs-image] {
+      object-fit: contain;
+      cursor: pointer;
+    }
+  }
 }
 
 .ShelfWithVideo__iframe {
   border: none;
+  height: calc(100% - 150px);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.ShelfWithVideo__Modal {
+  --fs-modal-width-tablet:90%;
+  --fs-modal-max-width:90%;
+  --fs-modal-min-height:50%;
+  --fs-modal-position-top:25%;
+
+  [data-fs-modal-header-title] {
+    text-transform: uppercase;
+  }
+
+
+  [data-fs-modal-header-close-button] {
+    background-color: var(--fs-color-main-1);
+    padding: 20px;
+    cursor: pointer;
+    svg {
+      color:#FFF;
+    }
+  }
 }
 
 

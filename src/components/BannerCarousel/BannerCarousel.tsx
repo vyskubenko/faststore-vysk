@@ -19,9 +19,6 @@ export interface BannerCarouselProps {
   infiniteMode: boolean;
 }
 
-
-
-
 const BannerCarousel = ({
   list,
   itemsPerPage,

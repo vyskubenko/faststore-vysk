@@ -1,9 +1,13 @@
 import React, { useState, useEffect, ReactElement, FC } from "react";
-import { Skeleton, Carousel } from "@faststore/ui";
+import { Skeleton, Carousel, Modal, ModalHeader, ModalBody} from "@faststore/ui";
 
 import styles from "./styles.module.scss";
 
 import { useProductsQuery } from "@faststore/core";
+
+// @ts-ignore next-line
+import { Image_unstable as Image } from "@faststore/core/experimental";
+
 
 import CustomProductCard from "../CustomProductCard/CustomProductCard";
 
@@ -13,6 +17,7 @@ export interface ShelfWithVideoProps {
   description: string;
   productClusterIds: string;
   video: string;
+  thumb: string;
 }
 
 const ShelfWithVideo: FC<ShelfWithVideoProps> = ({
@@ -20,11 +25,14 @@ const ShelfWithVideo: FC<ShelfWithVideoProps> = ({
   subtitle,
   description,
   productClusterIds,
-  video
+  video,
+  thumb
 }): ReactElement => {
 
   const [productsJson, setProductsJson] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [dimensions, setDimensions] = useState({dimensions: {}} as any)
+  const [videoModal, openVideoModal] = useState(false)
 
   const collectionId = String(productClusterIds);
 
@@ -42,6 +50,10 @@ const ShelfWithVideo: FC<ShelfWithVideoProps> = ({
       setLoading(false);
     }
   }, [fetchedData]);
+
+  const onImgLoad = function(img:any) {
+    setDimensions({height:img.target.height, width:img.target.width});
+  }
 
   return (
     <section
@@ -79,11 +91,44 @@ const ShelfWithVideo: FC<ShelfWithVideoProps> = ({
       {video ? (
         <div
           className={`${styles.ShelfWithVideo__col} ${styles.ShelfWithVideo__banner__img} ${styles.ShelfWithVideo__banner} ShelfWithVideo__col`}
-          data-fs-hero-image
         >
-        <picture data-fs-video>
-          <iframe className={styles.ShelfWithVideo__iframe} width="100%" height="100%" src={video} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-        </picture>
+          <Image
+            data-fs-image
+            src={thumb}
+            width={dimensions.width||100}
+            height={dimensions.height||50}
+            alt={description}
+            priority={true}
+            loading="eager"
+            onLoad={onImgLoad}
+            onClick={() => openVideoModal(true)}
+          />
+          {videoModal && (
+            <Modal className={styles.ShelfWithVideo__Modal} onDismiss={() => {
+              openVideoModal(false)
+            }}>
+              {({ fadeOut }) => (
+                <>
+                  <ModalHeader
+                    onClose={() => {
+                      fadeOut()
+                      openVideoModal(false)
+                    }}
+                    
+                    title={title}
+                    description={description}
+                  />
+                  <ModalBody>
+                    
+                  <picture data-fs-video>
+                    <iframe className={styles.ShelfWithVideo__iframe} width="100%" height="100%" src={video} title={title}  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                  </picture>
+
+                  </ModalBody>
+                </>
+              )}
+            </Modal>
+          )}
       </div>
       ):''}
       

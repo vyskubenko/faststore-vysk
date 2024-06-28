@@ -44,9 +44,9 @@ $basepath: '../assets';
 
     // NUMERIC SCALE
 
-    --fs-text-scale-desktop              : 3.27;
+    --fs-text-scale-desktop              : 1;
     --fs-text-scale-mobile               : 0.7;
-    --fs-scale                           : var(--fs-text-scale-mobile);
+    --fs-scale                           : var(--fs-text-scale-desktop);
 
     @include media("<notebook") {
       --fs-scale                         : var(--fs-text-scale-mobile);
@@ -56,7 +56,7 @@ $basepath: '../assets';
 
     --fs-text-size-0                     : 12px; // Smallest
     --fs-text-size-1                     : 14px; // Smaller                               
-    --fs-text-size-2                     : var(--fs-text-size-base);                      
+    --fs-text-size-2                     : 16px;                      
     --fs-text-size-3                     : 20px; 
     --fs-text-size-4                     : calc(40px * var(--fs-scale));
     --fs-text-size-5                     : calc(56px * var(--fs-scale)); 
@@ -79,24 +79,14 @@ $basepath: '../assets';
     --fs-spacing-4                       : 1.5rem; // 24px
     --fs-spacing-5                       : 2rem;   // 32px
     --fs-spacing-6                       : 2.5rem; // 40px
-    --fs-spacing-7                       : 3rem;   // 48px
-    --fs-spacing-8                       : 3.5rem; // 56px
-    --fs-spacing-9                       : 4rem;   // 64px
-    --fs-spacing-10                      : 4.5rem; // 72px
-    --fs-spacing-11                      : 5rem;   // 80px
-    --fs-spacing-12                      : 5.5rem; // 88px
-    --fs-spacing-13                      : 6rem;   // 96px
+    --fs-spacing-7                       : calc(3rem * var(--fs-scale));   // 48px
+    --fs-spacing-8                       : calc(3.5rem * var(--fs-scale)); // 56px
+    --fs-spacing-9                       : calc(4rem * var(--fs-scale));   // 64px
+    --fs-spacing-10                      : calc(4.5rem * var(--fs-scale)); // 72px
+    --fs-spacing-11                      : calc(5rem * var(--fs-scale));   // 80px
+    --fs-spacing-12                      : calc(5.5rem * var(--fs-scale)); // 88px
+    --fs-spacing-13                      : calc(6rem * var(--fs-scale));   // 96px
 
-    @include media("<notebook") {
-      --fs-spacing-6                       : calc(--fs-spacing-6 * var(var(--fs-scale)))
-      --fs-spacing-7                       : calc(--fs-spacing-7 * var(var(--fs-scale)))
-      --fs-spacing-8                       : calc(--fs-spacing-8 * var(var(--fs-scale)))
-      --fs-spacing-9                       : calc(--fs-spacing-9 * var(var(--fs-scale)))
-      --fs-spacing-10                      : calc(--fs-spacing-10 * var(var(--fs-scale)))
-      --fs-spacing-11                      : calc(--fs-spacing-11 * var(var(--fs-scale)))
-      --fs-spacing-12                      : calc(--fs-spacing-12 * var(var(--fs-scale)))
-      --fs-spacing-13                      : calc(--fs-spacing-13 * var(var(--fs-scale)))
-    }
     
     // --------------------------------------------------------
     // Grid & Layout (UI Essentials)
@@ -109,10 +99,19 @@ $basepath: '../assets';
     --fs-product-card-title-size: var(--fs-text-size-4);
 
     --fs-grid-max-width: calc(100% - var(--fs-spacing-8));
+    
 
     // --------------------------------------------------------
     // Interactive Controls (UI Essentials)
     // --------------------------------------------------------
+
+    --fs-control-tap-size: 50px;
+
+    @include media("<notebook") {
+      --fs-control-tap-size: 44px;
+    }
+
+    --fs-button-small-min-height:var(--fs-control-tap-size);
 
     // --------------------------------------------------------
     // Refinements

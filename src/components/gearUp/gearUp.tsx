@@ -84,7 +84,6 @@ const gearUp: FC<gearUpProps> = ({
                   key={index}
                 >
                   <Link 
-                    key={index}
                     className={styles.gearUp__category__parts__links__button}
                     variant={index === activeCategoryTab ? "display" : "default"}
                     onClick={() => {
@@ -111,9 +110,7 @@ const gearUp: FC<gearUpProps> = ({
                 key={index}
                 className={styles.gearUp__parts__link}
               >
-
                 <Link 
-                  key={index}
                   href={link.href}
                   className={styles.gearUp__parts__link__a}
                 >

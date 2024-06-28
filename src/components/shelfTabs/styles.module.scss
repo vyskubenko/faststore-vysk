@@ -51,6 +51,10 @@
   margin-bottom: var(--fs-spacing-4);
   text-transform: uppercase;
   color: var(--fs-color-main-3);
+
+  @include media("<notebook") {
+    font-size: var(--fs-text-size-6);
+  }
 }
 
 

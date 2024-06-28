@@ -79,7 +79,7 @@ const shelfTabs: FC<styleTabsProps> = ({
             }}
           >
             {tabs.map((item, index) => (
-              <option value={index} selected={index === activeTab ? true : false} >{item.title}</option>
+              <option key={index} value={index} >{item.title}</option>
             ))}
           </select>
         </div>
@@ -104,7 +104,7 @@ const shelfTabs: FC<styleTabsProps> = ({
                 productsJson.map((product: any, idx: number) => (
                   <CustomProductCard
                     product={product}
-                    key={product}
+                    key={idx}
                     idx={idx}
                   ></CustomProductCard>
                 ))}
